@@ -10,22 +10,17 @@ namespace ServerGui
         public ServerGui()
         {
             InitializeComponent();
-            consoleTextBox.Dock = DockStyle.Fill;
-            playersListBox.Dock = DockStyle.Fill;
-            consoleTextBox.VisibleChanged += (sender, e) =>
+            ConsoleTextBox.Dock = DockStyle.Fill;
+            PlayersListBox.Dock = DockStyle.Fill;
+            ConsoleTextBox.VisibleChanged += (sender, e) =>
             {
-                Console.WriteLine(consoleTextBox.Visible);
-                if (consoleTextBox.Visible)
+                Console.WriteLine(ConsoleTextBox.Visible);
+                if (ConsoleTextBox.Visible)
                 {
-                    consoleTextBox.SelectionStart = consoleTextBox.TextLength;
-                    consoleTextBox.ScrollToCaret();
+                    ConsoleTextBox.SelectionStart = ConsoleTextBox.TextLength;
+                    ConsoleTextBox.ScrollToCaret();
                 }
             };
-
-            //TODO MAKE THIS ACCOUNT FOR SERVER OPTIONS INSTEAD OF HARD CODE
-
-
-
 
         }
 
@@ -33,37 +28,37 @@ namespace ServerGui
         {
             if (e.KeyChar == (char)Keys.Return)
             {
-                this.execute_command(this.commandTextBox.Text);
+                this.ExecuteCommand(this.CommandTextBox.Text);
                 e.Handled = true;
-                this.commandTextBox.Text = "";
+                this.CommandTextBox.Text = "";
             }
         }
 
 
-        public void process_OutputDataReceived(object sender, DataReceivedEventArgs e)
+        private void Process_OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
             this.Invoke(new MethodInvoker(() =>
             {
-                if (!string.IsNullOrWhiteSpace(consoleTextBox.Text)) 
+                if (!string.IsNullOrWhiteSpace(ConsoleTextBox.Text)) 
                 {
-                    consoleTextBox.AppendText("\r\n" + e.Data);
+                    ConsoleTextBox.AppendText("\r\n" + e.Data);
                 } else
                 {
-                    consoleTextBox.AppendText(e.Data);
+                    ConsoleTextBox.AppendText(e.Data);
                 }
-                consoleTextBox.Select(consoleTextBox.TextLength, 0);
-                consoleTextBox.ScrollToCaret();
+                ConsoleTextBox.Select(ConsoleTextBox.TextLength, 0);
+                ConsoleTextBox.ScrollToCaret();
             }));
         }
 
-        private void execute_command(String command)
+        private void ExecuteCommand(String command)
         {
             if (this.compiler != null)
             {
                 //This wont work correctly until creating process code is moved to start button click area
                 //Should also handle hittng the stop button when say is checked so it doesnt say "stop"
                 System.IO.StreamWriter sr = this.compiler.StandardInput;
-                if (this.sayCheckBox.Checked)
+                if (this.SayCheckBox.Checked)
                 {
                     sr.WriteLine("say " + command);
                 }
@@ -74,9 +69,9 @@ namespace ServerGui
             }
         }
 
-        private void startButton_Click(object sender, EventArgs e)
+        private void StartButton_Click(object sender, EventArgs e)
         {
-            if (this.startButton.Text == "Start")
+            if (this.StartButton.Text == "Start")
             {
                 //TODO HANDLE THE PROCESS CREATION STUFF HERE SO WE CAN CHECK IF A SERVER IS 
                 //RUNNING BY CHECKING IF COMPILER IS NULL OR NOT.
@@ -88,7 +83,7 @@ namespace ServerGui
 
                 compiler.StartInfo.UseShellExecute = false;
                 compiler.StartInfo.CreateNoWindow = true;
-                compiler.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(process_OutputDataReceived);
+                compiler.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(Process_OutputDataReceived);
                 compiler.StartInfo.RedirectStandardOutput = true;
                 compiler.StartInfo.RedirectStandardInput = true;
                 //  compiler.Start();
@@ -100,43 +95,43 @@ namespace ServerGui
 
                 compiler.Start();
                 compiler.BeginOutputReadLine();
-                this.startButton.Text = "Stop";
+                this.StartButton.Text = "Stop";
             }
             else
             {
                 if (this.compiler != null) {
-                    this.execute_command("stop");
+                    this.ExecuteCommand("stop");
                     this.compiler.Close();
                     this.compiler = null;
-                    this.startButton.Text = "Start";
+                    this.StartButton.Text = "Start";
                 }
             }
         }
 
-        private void execute_button_Click(object sender, EventArgs e)
+        private void ExecuteButton_Click(object sender, EventArgs e)
         {
             //TODO MAKE THIS CACHE RAN COMMANDS TO ALLOW FOR UP ARROW EDIT
-            this.execute_command(this.commandTextBox.Text);
+            this.ExecuteCommand(this.CommandTextBox.Text);
         }
 
-        private void killButton_Click(object sender, EventArgs e)
+        private void KillButton_Click(object sender, EventArgs e)
         {
             if (this.compiler != null)
             {
                 this.compiler.Kill();
-                this.startButton.Text = "Start";
+                this.StartButton.Text = "Start";
             }
         }
 
-        private void reloadButton_Click(object sender, EventArgs e)
+        private void ReloadButton_Click(object sender, EventArgs e)
         {
-            this.execute_command("reload");
-            this.execute_command("reload confirm");
+            this.ExecuteCommand("reload");
+            this.ExecuteCommand("reload confirm");
         }
 
-        private void restartButton_Click(object sender, EventArgs e)
+        private void RestartButton_Click(object sender, EventArgs e)
         {
-            this.execute_command("stop");
+            this.ExecuteCommand("stop");
         }
     }
 }
