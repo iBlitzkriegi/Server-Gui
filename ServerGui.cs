@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace ServerGui
 {
     public partial class ServerGui : Form
     {
         Process compiler = null;
+        List<String> executedCommandsList = new List<String>();
         public ServerGui()
         {
             InitializeComponent();
-            ConsoleTextBox.Dock = DockStyle.Fill;
-            PlayersListBox.Dock = DockStyle.Fill;
             ConsoleTextBox.VisibleChanged += (sender, e) =>
             {
                 Console.WriteLine(ConsoleTextBox.Visible);
@@ -65,6 +65,7 @@ namespace ServerGui
                 else
                 {
                     sr.WriteLine(command);
+                    this.executedCommandsList.Add(command);
                 }
             }
         }
@@ -91,6 +92,7 @@ namespace ServerGui
                 this.compiler = compiler;
                 this.KeyPreview = true;
                 this.KeyPress += new KeyPressEventHandler(ServerGui_KeyPress);
+
 
 
                 compiler.Start();
@@ -132,6 +134,18 @@ namespace ServerGui
         private void RestartButton_Click(object sender, EventArgs e)
         {
             this.ExecuteCommand("stop");
+        }
+
+        private void CommandTextBox_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode != Keys.Up) { return; }
+            if (executedCommandsList.Count >= 1)
+            {
+                this.CommandTextBox.Text = executedCommandsList[executedCommandsList.Count - 1];
+                this.CommandTextBox.Focus();
+                this.CommandTextBox.SelectionStart = this.CommandTextBox.Text.Trim().Length + 1;
+                this.CommandTextBox.SelectionLength = 0;
+            }
         }
     }
 }

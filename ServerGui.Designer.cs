@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ConsolePage = new System.Windows.Forms.TabPage();
             this.GuiUsageLabel = new System.Windows.Forms.Label();
             this.GpuUsageLabel = new System.Windows.Forms.Label();
@@ -52,8 +52,7 @@
             this.consoleContainer = new System.Windows.Forms.SplitContainer();
             this.PlayersListBox = new System.Windows.Forms.ListBox();
             this.ConsoleTextBox = new System.Windows.Forms.RichTextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabControl1.SuspendLayout();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.ConsolePage.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -61,19 +60,18 @@
             this.consoleContainer.Panel1.SuspendLayout();
             this.consoleContainer.Panel2.SuspendLayout();
             this.consoleContainer.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabPage2
             // 
-            this.tabControl1.Controls.Add(this.ConsolePage);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(984, 676);
-            this.tabControl1.TabIndex = 0;
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(976, 648);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // ConsolePage
             // 
@@ -183,13 +181,13 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
             this.flowLayoutPanel1.Controls.Add(this.CommandTextBox);
             this.flowLayoutPanel1.Controls.Add(this.ExecuteButton);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 482);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(970, 34);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(969, 34);
             this.flowLayoutPanel1.TabIndex = 10;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -225,15 +223,18 @@
             // 
             // CommandTextBox
             // 
-            this.CommandTextBox.Location = new System.Drawing.Point(68, 3);
+            this.CommandTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CommandTextBox.Location = new System.Drawing.Point(68, 5);
             this.CommandTextBox.Name = "CommandTextBox";
             this.CommandTextBox.Size = new System.Drawing.Size(818, 22);
             this.CommandTextBox.TabIndex = 9;
+            this.CommandTextBox.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.CommandTextBox_PreviewKeyDown);
             // 
             // ExecuteButton
             // 
+            this.ExecuteButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ExecuteButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExecuteButton.Location = new System.Drawing.Point(892, 3);
+            this.ExecuteButton.Location = new System.Drawing.Point(892, 5);
             this.ExecuteButton.Name = "ExecuteButton";
             this.ExecuteButton.Size = new System.Drawing.Size(75, 23);
             this.ExecuteButton.TabIndex = 9;
@@ -305,34 +306,38 @@
             // 
             // PlayersListBox
             // 
+            this.PlayersListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlayersListBox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlayersListBox.FormattingEnabled = true;
             this.PlayersListBox.IntegralHeight = false;
             this.PlayersListBox.ItemHeight = 14;
-            this.PlayersListBox.Location = new System.Drawing.Point(3, 0);
+            this.PlayersListBox.Location = new System.Drawing.Point(0, 0);
             this.PlayersListBox.Name = "PlayersListBox";
-            this.PlayersListBox.Size = new System.Drawing.Size(148, 488);
+            this.PlayersListBox.Size = new System.Drawing.Size(153, 473);
             this.PlayersListBox.TabIndex = 0;
             // 
             // ConsoleTextBox
             // 
+            this.ConsoleTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ConsoleTextBox.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConsoleTextBox.Location = new System.Drawing.Point(3, -3);
+            this.ConsoleTextBox.Location = new System.Drawing.Point(0, 0);
             this.ConsoleTextBox.Name = "ConsoleTextBox";
             this.ConsoleTextBox.ReadOnly = true;
-            this.ConsoleTextBox.Size = new System.Drawing.Size(807, 491);
+            this.ConsoleTextBox.Size = new System.Drawing.Size(813, 473);
             this.ConsoleTextBox.TabIndex = 1;
             this.ConsoleTextBox.Text = "";
             // 
-            // tabPage2
+            // tabControl1
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(976, 648);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabControl1.Controls.Add(this.ConsolePage);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(984, 676);
+            this.tabControl1.TabIndex = 0;
             // 
             // ServerGui
             // 
@@ -341,8 +346,7 @@
             this.ClientSize = new System.Drawing.Size(984, 676);
             this.Controls.Add(this.tabControl1);
             this.Name = "ServerGui";
-            this.Text = "Form1";
-            this.tabControl1.ResumeLayout(false);
+            this.Text = "Server Gui - iBlitzkriegi";
             this.ConsolePage.ResumeLayout(false);
             this.ConsolePage.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -353,37 +357,37 @@
             this.consoleContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.consoleContainer)).EndInit();
             this.consoleContainer.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage ConsolePage;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.ListBox PlayersListBox;
-        private System.Windows.Forms.RichTextBox ConsoleTextBox;
-        private System.Windows.Forms.SplitContainer consoleContainer;
+        private System.Windows.Forms.TabPage ConsolePage;
+        private System.Windows.Forms.Label GuiUsageLabel;
+        private System.Windows.Forms.Label GpuUsageLabel;
+        private System.Windows.Forms.Label RamUsageLabel;
+        private System.Windows.Forms.Label GuiPercentLabel;
+        private System.Windows.Forms.Label GpuPercentLabel;
+        private System.Windows.Forms.Label RamPercentLabel;
+        private System.Windows.Forms.ProgressBar GpuProgressBar;
+        private System.Windows.Forms.ProgressBar GuiProgressBar;
+        private System.Windows.Forms.ProgressBar RamProgressBar;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label SayLabel;
+        private System.Windows.Forms.CheckBox SayCheckBox;
+        private System.Windows.Forms.TextBox CommandTextBox;
+        private System.Windows.Forms.Button ExecuteButton;
         private System.Windows.Forms.Button KillButton;
         private System.Windows.Forms.Button ReloadButton;
         private System.Windows.Forms.Button RestartButton;
         private System.Windows.Forms.Button StartButton;
-        private System.Windows.Forms.TextBox CommandTextBox;
-        private System.Windows.Forms.Button ExecuteButton;
-        private System.Windows.Forms.CheckBox SayCheckBox;
-        private System.Windows.Forms.Label SayLabel;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.ProgressBar RamProgressBar;
-        private System.Windows.Forms.ProgressBar GpuProgressBar;
-        private System.Windows.Forms.ProgressBar GuiProgressBar;
-        private System.Windows.Forms.Label GuiPercentLabel;
-        private System.Windows.Forms.Label GpuPercentLabel;
-        private System.Windows.Forms.Label RamPercentLabel;
-        private System.Windows.Forms.Label GuiUsageLabel;
-        private System.Windows.Forms.Label GpuUsageLabel;
-        private System.Windows.Forms.Label RamUsageLabel;
+        private System.Windows.Forms.SplitContainer consoleContainer;
+        private System.Windows.Forms.ListBox PlayersListBox;
+        private System.Windows.Forms.RichTextBox ConsoleTextBox;
+        private System.Windows.Forms.TabControl tabControl1;
     }
 }
 
