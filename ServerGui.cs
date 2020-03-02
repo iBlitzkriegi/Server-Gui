@@ -26,7 +26,7 @@ namespace ServerGui
 
         private void ServerGui_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Return)
+            if (e.KeyChar == (char) Keys.Return)
             {
                 this.ExecuteCommand(this.CommandTextBox.Text);
                 e.Handled = true;
@@ -147,5 +147,28 @@ namespace ServerGui
                 this.CommandTextBox.SelectionLength = 0;
             }
         }
+
+        private void ExecuteCommandsPanel_Resize(object sender, EventArgs e)
+        {
+            this.CommandTextBox.Width = this.ExecuteCommandsPanel.Width - this.ExecuteButton.Width - this.flowLayoutPanel9.Width - 25;
+            
+        }
+
+        private void BottomHalfOfConsolePanel_Resize(object sender, EventArgs e)
+        {
+            int bottomHalfOfConsoleWidth = this.BottomHalfOfConsole.Width;
+            int padding = 35;
+            int progressBarWidth = this.ServerStatisticsPanel.Width - this.GuiUsageLabel.Width - this.GuiPercentLabel.Width - padding;
+
+            this.ExecuteCommandsPanel.Width = bottomHalfOfConsoleWidth;
+            this.ConsolePageUiElementsPanel.Width = bottomHalfOfConsoleWidth;
+            this.ServerStatisticsPanel.Width = bottomHalfOfConsoleWidth - this.ConsolePageButtonsFlowPanel.Width;
+            this.GuiUsagePanel.Width = bottomHalfOfConsoleWidth;
+
+            this.GuiProgressBar.Width = progressBarWidth;
+            this.GpuProgressBar.Width = progressBarWidth;
+            this.RamProgressBar.Width = progressBarWidth;
+        }
+
     }
 }
