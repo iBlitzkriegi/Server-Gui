@@ -82,7 +82,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(976, 648);
+            this.tabPage2.Size = new System.Drawing.Size(977, 648);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -290,9 +290,8 @@
             // 
             // GuiUsageLabel
             // 
-            this.GuiUsageLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.GuiUsageLabel.AutoSize = true;
-            this.GuiUsageLabel.Location = new System.Drawing.Point(3, 7);
+            this.GuiUsageLabel.Location = new System.Drawing.Point(3, 0);
             this.GuiUsageLabel.Name = "GuiUsageLabel";
             this.GuiUsageLabel.Size = new System.Drawing.Size(65, 15);
             this.GuiUsageLabel.TabIndex = 19;
@@ -333,9 +332,8 @@
             // 
             // GpuUsageLabel
             // 
-            this.GpuUsageLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.GpuUsageLabel.AutoSize = true;
-            this.GpuUsageLabel.Location = new System.Drawing.Point(3, 7);
+            this.GpuUsageLabel.Location = new System.Drawing.Point(3, 0);
             this.GpuUsageLabel.Name = "GpuUsageLabel";
             this.GpuUsageLabel.Size = new System.Drawing.Size(68, 15);
             this.GpuUsageLabel.TabIndex = 18;

@@ -158,13 +158,13 @@ namespace ServerGui
         {
             int bottomHalfOfConsoleWidth = this.BottomHalfOfConsole.Width;
             int padding = 35;
-            int progressBarWidth = this.ServerStatisticsPanel.Width - this.GuiUsageLabel.Width - this.GuiPercentLabel.Width - padding;
 
             this.ExecuteCommandsPanel.Width = bottomHalfOfConsoleWidth;
             this.ConsolePageUiElementsPanel.Width = bottomHalfOfConsoleWidth;
             this.ServerStatisticsPanel.Width = bottomHalfOfConsoleWidth - this.ConsolePageButtonsFlowPanel.Width;
             this.GuiUsagePanel.Width = bottomHalfOfConsoleWidth;
 
+            int progressBarWidth = this.ServerStatisticsPanel.Width - this.GuiUsageLabel.Width - this.GuiPercentLabel.Width - padding;
             this.GuiProgressBar.Width = progressBarWidth;
             this.GpuProgressBar.Width = progressBarWidth;
             this.RamProgressBar.Width = progressBarWidth;
