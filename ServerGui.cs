@@ -72,43 +72,50 @@ namespace ServerGui
             }
         }
 
+        void StartServer()
+        {
+            Process compiler = new Process();
+            compiler.StartInfo.FileName = "java";
+            compiler.StartInfo.Arguments = "-jar C:\\Users\\matthew\\Desktop\\Minecraft\\Vixio\\paperclip.jar nogui";
+            compiler.StartInfo.WorkingDirectory = "C:\\Users\\matthew\\Desktop\\Minecraft\\Vixio";
+
+            compiler.StartInfo.UseShellExecute = false;
+            compiler.StartInfo.CreateNoWindow = true;
+            compiler.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(Process_OutputDataReceived);
+            compiler.StartInfo.RedirectStandardOutput = true;
+            compiler.StartInfo.RedirectStandardInput = true;
+            //  compiler.Start();
+            //  compiler.BeginOutputReadLine();
+            this.compiler = compiler;
+            this.KeyPreview = true;
+            this.KeyPress += new KeyPressEventHandler(ServerGui_KeyPress);
+
+
+
+            compiler.Start();
+            compiler.BeginOutputReadLine();
+            this.StartButton.Text = "Stop";
+        }
+
+        void StopServer()
+        {
+            this.ExecuteCommand("stop");
+            this.compiler.Close();
+            this.compiler = null;
+            this.StartButton.Text = "Start";
+        }
+
         private void StartButton_Click(object sender, EventArgs e)
         {
             if (this.StartButton.Text == "Start")
             {
-                //TODO HANDLE THE PROCESS CREATION STUFF HERE SO WE CAN CHECK IF A SERVER IS 
-                //RUNNING BY CHECKING IF COMPILER IS NULL OR NOT.
-
-                Process compiler = new Process();
-                compiler.StartInfo.FileName = "java";
-                compiler.StartInfo.Arguments = "-jar C:\\Users\\matthew\\Desktop\\Minecraft\\Vixio\\paperclip.jar nogui";
-                compiler.StartInfo.WorkingDirectory = "C:\\Users\\matthew\\Desktop\\Minecraft\\Vixio";
-
-                compiler.StartInfo.UseShellExecute = false;
-                compiler.StartInfo.CreateNoWindow = true;
-                compiler.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(Process_OutputDataReceived);
-                compiler.StartInfo.RedirectStandardOutput = true;
-                compiler.StartInfo.RedirectStandardInput = true;
-                //  compiler.Start();
-                //  compiler.BeginOutputReadLine();
-                this.compiler = compiler;
-                this.KeyPreview = true;
-                this.KeyPress += new KeyPressEventHandler(ServerGui_KeyPress);
-
-
-
-                compiler.Start();
-                compiler.BeginOutputReadLine();
-                this.StartButton.Text = "Stop";
+                this.StartServer();
             }
             else
             {
                 if (this.compiler != null)
                 {
-                    this.ExecuteCommand("stop");
-                    this.compiler.Close();
-                    this.compiler = null;
-                    this.StartButton.Text = "Start";
+                    this.StopServer();
                 }
             }
         }
