@@ -56,8 +56,6 @@ namespace ServerGui
         {
             if (this.compiler != null)
             {
-                //This wont work correctly until creating process code is moved to start button click area
-                //Should also handle hittng the stop button when say is checked so it doesnt say "stop"
                 System.IO.StreamWriter sr = this.compiler.StandardInput;
                 if (this.SayCheckBox.Checked)
                 {
@@ -84,8 +82,6 @@ namespace ServerGui
             compiler.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(Process_OutputDataReceived);
             compiler.StartInfo.RedirectStandardOutput = true;
             compiler.StartInfo.RedirectStandardInput = true;
-            //  compiler.Start();
-            //  compiler.BeginOutputReadLine();
             this.compiler = compiler;
             this.KeyPreview = true;
             this.KeyPress += new KeyPressEventHandler(ServerGui_KeyPress);
