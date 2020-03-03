@@ -181,7 +181,7 @@
             this.CommandTextBox.Name = "CommandTextBox";
             this.CommandTextBox.Size = new System.Drawing.Size(811, 22);
             this.CommandTextBox.TabIndex = 9;
-            this.CommandTextBox.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.CommandTextBox_PreviewKeyDown);
+            this.CommandTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CommandTextBox_KeyDown);
             // 
             // ExecuteButton
             // 

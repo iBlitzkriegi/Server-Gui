@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
-using System.Collections.Generic;
 
 namespace ServerGui
 {
@@ -26,7 +26,7 @@ namespace ServerGui
 
         private void ServerGui_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char) Keys.Return)
+            if (e.KeyChar == (char)Keys.Return)
             {
                 this.ExecuteCommand(this.CommandTextBox.Text);
                 e.Handled = true;
@@ -39,10 +39,11 @@ namespace ServerGui
         {
             this.Invoke(new MethodInvoker(() =>
             {
-                if (!string.IsNullOrWhiteSpace(ConsoleTextBox.Text)) 
+                if (!string.IsNullOrWhiteSpace(ConsoleTextBox.Text))
                 {
                     ConsoleTextBox.AppendText("\r\n" + e.Data);
-                } else
+                }
+                else
                 {
                     ConsoleTextBox.AppendText(e.Data);
                 }
@@ -102,7 +103,8 @@ namespace ServerGui
             }
             else
             {
-                if (this.compiler != null) {
+                if (this.compiler != null)
+                {
                     this.ExecuteCommand("stop");
                     this.compiler.Close();
                     this.compiler = null;
@@ -136,40 +138,10 @@ namespace ServerGui
             this.ExecuteCommand("stop");
         }
 
-        private void CommandTextBox_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            if (e.KeyCode != Keys.Up && e.KeyCode != Keys.Down) { return; }
-            //TODO Set executedCommandIndex after every successfully up/down arrow.
-            //Make it so if you hit up arrow but you modified the text it just takes the last index and modifies
-            //it instead of just breaking. Also make it so you can use it even after the server shuts down
-            if (executedCommandsList.Count >= 1)
-            {
-                if (!String.IsNullOrEmpty(this.CommandTextBox.Text))
-                {
-                    int index = executedCommandsList.FindIndex(x => x.StartsWith(this.CommandTextBox.Text));
-                    if (index != -1)
-                    {
-                        index = e.KeyCode == Keys.Up ? index -= 1 : index += 1;
-                        if (index >= 0 && index < this.executedCommandsList.Count)
-                        {
-                            this.CommandTextBox.Text = this.executedCommandsList[index];
-                        }
-                    }
-                } 
-                else {
-                    this.CommandTextBox.Text = executedCommandsList[this.executedCommandsList.Count - 1];
-                }
-
-                this.CommandTextBox.Focus();
-                this.CommandTextBox.SelectionStart = this.CommandTextBox.Text.Trim().Length + 1;
-                this.CommandTextBox.SelectionLength = 0;
-            }
-        }
-
         private void ExecuteCommandsPanel_Resize(object sender, EventArgs e)
         {
             this.CommandTextBox.Width = this.ExecuteCommandsPanel.Width - this.ExecuteButton.Width - this.flowLayoutPanel9.Width - 25;
-            
+
         }
 
         private void BottomHalfOfConsolePanel_Resize(object sender, EventArgs e)
@@ -194,6 +166,62 @@ namespace ServerGui
             {
                 this.ExecuteCommand("stop");
                 this.compiler.Kill();
+            }
+        }
+
+        private void CommandTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Up && e.KeyCode != Keys.Down) { return; }
+            if (executedCommandsList.Count >= 1)
+            {
+                if (!String.IsNullOrEmpty(this.CommandTextBox.Text))
+                {
+
+                    if (!(this.executedCommandsIndex == 0 && e.KeyCode == Keys.Up))
+                    {
+                        int index = this.executedCommandsIndex == 0
+                            ? this.executedCommandsList.FindIndex(x => x.StartsWith(this.CommandTextBox.Text))
+                            : this.executedCommandsList.FindLastIndex(x => x.StartsWith(this.CommandTextBox.Text));
+                        if (index != -1)
+                        {
+                            index = e.KeyCode == Keys.Up ? index -= 1 : index += 1;
+                            if (index >= 0 && index < this.executedCommandsList.Count)
+                            {
+                                this.CommandTextBox.Text = this.executedCommandsList[index];
+                                this.executedCommandsIndex = index;
+                            }
+                        }
+                        else
+                        {
+                            if (e.KeyCode == Keys.Up)
+                            {
+                                this.executedCommandsIndex -= 1;
+                            }
+                            else
+                            {
+                                if (this.executedCommandsIndex + 1 < this.executedCommandsList.Count)
+                                {
+                                    this.executedCommandsIndex += 1;
+                                }
+                            }
+
+                            this.CommandTextBox.Text = this.executedCommandsList[this.executedCommandsIndex.Value];
+                        }
+                    }
+
+                }
+                else
+                {
+                    int i = this.executedCommandsList.Count - 1;
+                    this.CommandTextBox.Text = executedCommandsList[i];
+                    this.executedCommandsIndex = i;
+                }
+                e.Handled = true;
+                this.CommandTextBox.Focus();
+                this.CommandTextBox.SelectionStart = this.CommandTextBox.TextLength + 1;
+                this.CommandTextBox.SelectionLength = 0;
+
+
             }
         }
     }
