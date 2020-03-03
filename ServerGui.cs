@@ -9,7 +9,7 @@ namespace ServerGui
     {
         Process compiler = null;
         List<String> executedCommandsList = new List<String>();
-        public int? executedCommandsIndex;
+        public int executedCommandsIndex;
         public ServerGui()
         {
             InitializeComponent();
@@ -176,53 +176,36 @@ namespace ServerGui
             {
                 if (!String.IsNullOrEmpty(this.CommandTextBox.Text))
                 {
-
-                    if (!(this.executedCommandsIndex == 0 && e.KeyCode == Keys.Up))
+                    if (e.KeyCode == Keys.Up)
                     {
-                        int index = this.executedCommandsIndex == 0
-                            ? this.executedCommandsList.FindIndex(x => x.StartsWith(this.CommandTextBox.Text))
-                            : this.executedCommandsList.FindLastIndex(x => x.StartsWith(this.CommandTextBox.Text));
-                        if (index != -1)
+                        this.executedCommandsIndex -= 1;
+                    }
+                    else
+                    {
+                        if (this.executedCommandsIndex + 1 < this.executedCommandsList.Count)
                         {
-                            index = e.KeyCode == Keys.Up ? index -= 1 : index += 1;
-                            if (index >= 0 && index < this.executedCommandsList.Count)
-                            {
-                                this.CommandTextBox.Text = this.executedCommandsList[index];
-                                this.executedCommandsIndex = index;
-                            }
-                        }
-                        else
-                        {
-                            if (e.KeyCode == Keys.Up)
-                            {
-                                this.executedCommandsIndex -= 1;
-                            }
-                            else
-                            {
-                                if (this.executedCommandsIndex + 1 < this.executedCommandsList.Count)
-                                {
-                                    this.executedCommandsIndex += 1;
-                                }
-                            }
-
-                            this.CommandTextBox.Text = this.executedCommandsList[this.executedCommandsIndex.Value];
+                            this.executedCommandsIndex += 1;
                         }
                     }
+                    if (this.executedCommandsIndex >= 0 && this.executedCommandsIndex < this.executedCommandsList.Count)
+                    {
+                        this.CommandTextBox.Text = this.executedCommandsList[this.executedCommandsIndex];
+                    }
 
-                }
-                else
-                {
+                } else {
                     int i = this.executedCommandsList.Count - 1;
                     this.CommandTextBox.Text = executedCommandsList[i];
                     this.executedCommandsIndex = i;
                 }
-                e.Handled = true;
-                this.CommandTextBox.Focus();
-                this.CommandTextBox.SelectionStart = this.CommandTextBox.TextLength + 1;
-                this.CommandTextBox.SelectionLength = 0;
-
 
             }
+            e.Handled = true;
+            this.CommandTextBox.Focus();
+            this.CommandTextBox.SelectionStart = this.CommandTextBox.TextLength + 1;
+            this.CommandTextBox.SelectionLength = 0;
+
+
         }
     }
 }
+
