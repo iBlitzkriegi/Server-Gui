@@ -15,7 +15,6 @@ namespace ServerGui
             InitializeComponent();
             ConsoleTextBox.VisibleChanged += (sender, e) =>
             {
-                Console.WriteLine(ConsoleTextBox.Visible);
                 if (ConsoleTextBox.Visible)
                 {
                     ConsoleTextBox.SelectionStart = ConsoleTextBox.TextLength;
@@ -145,15 +144,9 @@ namespace ServerGui
             //it instead of just breaking. Also make it so you can use it even after the server shuts down
             if (executedCommandsList.Count >= 1)
             {
-                if (executedCommandsList.Count == 1)
-                {
-                    Console.WriteLine("only has one");
-                }
-
                 if (!String.IsNullOrEmpty(this.CommandTextBox.Text))
                 {
                     int index = executedCommandsList.FindIndex(x => x.StartsWith(this.CommandTextBox.Text));
-                    Console.WriteLine(index);
                     if (index != -1)
                     {
                         index = e.KeyCode == Keys.Up ? index -= 1 : index += 1;
