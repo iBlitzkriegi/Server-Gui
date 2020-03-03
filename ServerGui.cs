@@ -9,6 +9,7 @@ namespace ServerGui
     {
         Process compiler = null;
         List<String> executedCommandsList = new List<String>();
+        public int? executedCommandsIndex;
         public ServerGui()
         {
             InitializeComponent();
@@ -61,6 +62,7 @@ namespace ServerGui
                 if (this.SayCheckBox.Checked)
                 {
                     sr.WriteLine("say " + command);
+                    this.executedCommandsList.Add("say " + command);
                 }
                 else
                 {
@@ -112,7 +114,6 @@ namespace ServerGui
 
         private void ExecuteButton_Click(object sender, EventArgs e)
         {
-            //TODO MAKE THIS CACHE RAN COMMANDS TO ALLOW FOR UP ARROW EDIT
             this.ExecuteCommand(this.CommandTextBox.Text);
         }
 
@@ -138,10 +139,34 @@ namespace ServerGui
 
         private void CommandTextBox_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if (e.KeyCode != Keys.Up) { return; }
+            if (e.KeyCode != Keys.Up && e.KeyCode != Keys.Down) { return; }
+            //TODO Set executedCommandIndex after every successfully up/down arrow.
+            //Make it so if you hit up arrow but you modified the text it just takes the last index and modifies
+            //it instead of just breaking.
             if (executedCommandsList.Count >= 1)
             {
-                this.CommandTextBox.Text = executedCommandsList[executedCommandsList.Count - 1];
+                if (executedCommandsList.Count == 1)
+                {
+                    Console.WriteLine("only has one");
+                }
+
+                if (!String.IsNullOrEmpty(this.CommandTextBox.Text))
+                {
+                    int index = executedCommandsList.FindIndex(x => x.StartsWith(this.CommandTextBox.Text));
+                    Console.WriteLine(index);
+                    if (index != -1)
+                    {
+                        index = e.KeyCode == Keys.Up ? index -= 1 : index += 1;
+                        if (index >= 0 && index < this.executedCommandsList.Count)
+                        {
+                            this.CommandTextBox.Text = this.executedCommandsList[index];
+                        }
+                    }
+                } 
+                else {
+                    this.CommandTextBox.Text = executedCommandsList[this.executedCommandsList.Count - 1];
+                }
+
                 this.CommandTextBox.Focus();
                 this.CommandTextBox.SelectionStart = this.CommandTextBox.Text.Trim().Length + 1;
                 this.CommandTextBox.SelectionLength = 0;
