@@ -142,7 +142,7 @@ namespace ServerGui
             if (e.KeyCode != Keys.Up && e.KeyCode != Keys.Down) { return; }
             //TODO Set executedCommandIndex after every successfully up/down arrow.
             //Make it so if you hit up arrow but you modified the text it just takes the last index and modifies
-            //it instead of just breaking.
+            //it instead of just breaking. Also make it so you can use it even after the server shuts down
             if (executedCommandsList.Count >= 1)
             {
                 if (executedCommandsList.Count == 1)
