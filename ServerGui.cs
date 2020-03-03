@@ -170,5 +170,13 @@ namespace ServerGui
             this.RamProgressBar.Width = progressBarWidth;
         }
 
+        private void ServerGui_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.compiler != null)
+            {
+                this.ExecuteCommand("stop");
+                this.compiler.Kill();
+            }
+        }
     }
 }
