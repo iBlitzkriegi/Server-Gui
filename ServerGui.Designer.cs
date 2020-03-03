@@ -457,7 +457,9 @@
             this.ClientSize = new System.Drawing.Size(984, 676);
             this.Controls.Add(this.tabControl1);
             this.Name = "ServerGui";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Server Gui - iBlitzkriegi";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServerGui_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.BottomHalfOfConsole.ResumeLayout(false);
