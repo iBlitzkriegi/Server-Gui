@@ -142,7 +142,8 @@ namespace ServerGui
 
         private void RestartButton_Click(object sender, EventArgs e)
         {
-            this.ExecuteCommand("stop");
+            this.StopServer();
+            this.StartServer();
         }
 
         private void ExecuteCommandsPanel_Resize(object sender, EventArgs e)
