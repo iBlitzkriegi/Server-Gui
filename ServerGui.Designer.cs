@@ -50,9 +50,9 @@
             this.GuiProgressBar = new System.Windows.Forms.ProgressBar();
             this.GuiPercentLabel = new System.Windows.Forms.Label();
             this.GpuUsagePanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.GpuUsageLabel = new System.Windows.Forms.Label();
-            this.GpuProgressBar = new System.Windows.Forms.ProgressBar();
-            this.GpuPercentLabel = new System.Windows.Forms.Label();
+            this.CpuUsageLabel = new System.Windows.Forms.Label();
+            this.CpuProgressBar = new System.Windows.Forms.ProgressBar();
+            this.CpuPercentLabel = new System.Windows.Forms.Label();
             this.RamUsagePanel = new System.Windows.Forms.FlowLayoutPanel();
             this.RamUsageLabel = new System.Windows.Forms.Label();
             this.RamProgressBar = new System.Windows.Forms.ProgressBar();
@@ -323,44 +323,44 @@
             this.GpuUsagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GpuUsagePanel.BackColor = System.Drawing.Color.Transparent;
-            this.GpuUsagePanel.Controls.Add(this.GpuUsageLabel);
-            this.GpuUsagePanel.Controls.Add(this.GpuProgressBar);
-            this.GpuUsagePanel.Controls.Add(this.GpuPercentLabel);
+            this.GpuUsagePanel.Controls.Add(this.CpuUsageLabel);
+            this.GpuUsagePanel.Controls.Add(this.CpuProgressBar);
+            this.GpuUsagePanel.Controls.Add(this.CpuPercentLabel);
             this.GpuUsagePanel.Location = new System.Drawing.Point(3, 43);
             this.GpuUsagePanel.Name = "GpuUsagePanel";
             this.GpuUsagePanel.Size = new System.Drawing.Size(872, 34);
             this.GpuUsagePanel.TabIndex = 22;
             this.GpuUsagePanel.WrapContents = false;
             // 
-            // GpuUsageLabel
+            // CpuUsageLabel
             // 
-            this.GpuUsageLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.GpuUsageLabel.AutoSize = true;
-            this.GpuUsageLabel.Location = new System.Drawing.Point(3, 7);
-            this.GpuUsageLabel.Name = "GpuUsageLabel";
-            this.GpuUsageLabel.Size = new System.Drawing.Size(68, 15);
-            this.GpuUsageLabel.TabIndex = 18;
-            this.GpuUsageLabel.Text = "GPU Usage";
+            this.CpuUsageLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.CpuUsageLabel.AutoSize = true;
+            this.CpuUsageLabel.Location = new System.Drawing.Point(3, 7);
+            this.CpuUsageLabel.Name = "CpuUsageLabel";
+            this.CpuUsageLabel.Size = new System.Drawing.Size(68, 15);
+            this.CpuUsageLabel.TabIndex = 18;
+            this.CpuUsageLabel.Text = "CPU Usage";
             // 
-            // GpuProgressBar
+            // CpuProgressBar
             // 
-            this.GpuProgressBar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.GpuProgressBar.Location = new System.Drawing.Point(77, 3);
-            this.GpuProgressBar.Name = "GpuProgressBar";
-            this.GpuProgressBar.Size = new System.Drawing.Size(752, 23);
-            this.GpuProgressBar.TabIndex = 13;
-            this.GpuProgressBar.Value = 50;
+            this.CpuProgressBar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.CpuProgressBar.Location = new System.Drawing.Point(77, 3);
+            this.CpuProgressBar.Name = "CpuProgressBar";
+            this.CpuProgressBar.Size = new System.Drawing.Size(752, 23);
+            this.CpuProgressBar.TabIndex = 13;
+            this.CpuProgressBar.Value = 50;
             // 
-            // GpuPercentLabel
+            // CpuPercentLabel
             // 
-            this.GpuPercentLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.GpuPercentLabel.AutoSize = true;
-            this.GpuPercentLabel.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GpuPercentLabel.Location = new System.Drawing.Point(835, 6);
-            this.GpuPercentLabel.Name = "GpuPercentLabel";
-            this.GpuPercentLabel.Size = new System.Drawing.Size(35, 17);
-            this.GpuPercentLabel.TabIndex = 15;
-            this.GpuPercentLabel.Text = "34%";
+            this.CpuPercentLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.CpuPercentLabel.AutoSize = true;
+            this.CpuPercentLabel.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CpuPercentLabel.Location = new System.Drawing.Point(835, 6);
+            this.CpuPercentLabel.Name = "CpuPercentLabel";
+            this.CpuPercentLabel.Size = new System.Drawing.Size(35, 17);
+            this.CpuPercentLabel.TabIndex = 15;
+            this.CpuPercentLabel.Text = "34%";
             // 
             // RamUsagePanel
             // 
@@ -493,9 +493,9 @@
         private System.Windows.Forms.Button ReloadButton;
         private System.Windows.Forms.Button KillButton;
         private System.Windows.Forms.FlowLayoutPanel GpuUsagePanel;
-        private System.Windows.Forms.Label GpuUsageLabel;
-        private System.Windows.Forms.ProgressBar GpuProgressBar;
-        private System.Windows.Forms.Label GpuPercentLabel;
+        private System.Windows.Forms.Label CpuUsageLabel;
+        private System.Windows.Forms.ProgressBar CpuProgressBar;
+        private System.Windows.Forms.Label CpuPercentLabel;
         private System.Windows.Forms.FlowLayoutPanel RamUsagePanel;
         private System.Windows.Forms.Label RamUsageLabel;
         private System.Windows.Forms.ProgressBar RamProgressBar;

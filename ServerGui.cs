@@ -166,7 +166,7 @@ namespace ServerGui
 
             int progressBarWidth = this.ServerStatisticsPanel.Width - this.GuiUsageLabel.Width - this.GuiPercentLabel.Width - padding;
             this.GuiProgressBar.Width = progressBarWidth;
-            this.GpuProgressBar.Width = progressBarWidth;
+            this.CpuProgressBar.Width = progressBarWidth;
             this.RamProgressBar.Width = progressBarWidth;
         }
 
