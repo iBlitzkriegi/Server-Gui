@@ -176,23 +176,32 @@ namespace ServerGui
             {
                 if (!String.IsNullOrEmpty(this.CommandTextBox.Text))
                 {
-                    if (e.KeyCode == Keys.Up)
+
+                    if (!(e.KeyCode == Keys.Down && this.executedCommandsIndex == this.executedCommandsList.Count - 1))
                     {
-                        this.executedCommandsIndex -= 1;
-                    }
-                    else
-                    {
-                        if (this.executedCommandsIndex + 1 < this.executedCommandsList.Count)
+                        if (e.KeyCode == Keys.Up)
                         {
-                            this.executedCommandsIndex += 1;
+                            this.executedCommandsIndex -= 1;
                         }
-                    }
-                    if (this.executedCommandsIndex >= 0 && this.executedCommandsIndex < this.executedCommandsList.Count)
+                        else
+                        {
+                            if (this.executedCommandsIndex + 1 < this.executedCommandsList.Count)
+                            {
+                                this.executedCommandsIndex += 1;
+                            }
+                        }
+                        if (this.executedCommandsIndex >= 0 && this.executedCommandsIndex < this.executedCommandsList.Count)
+                        {
+                            this.CommandTextBox.Text = this.executedCommandsList[this.executedCommandsIndex];
+                        }
+                    } else
                     {
-                        this.CommandTextBox.Text = this.executedCommandsList[this.executedCommandsIndex];
+                        this.CommandTextBox.Text = "";
                     }
 
-                } else {
+                }
+                else
+                {
                     int i = this.executedCommandsList.Count - 1;
                     this.CommandTextBox.Text = executedCommandsList[i];
                     this.executedCommandsIndex = i;
