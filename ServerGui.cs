@@ -11,6 +11,7 @@ namespace ServerGui
         Process compiler = null;
         List<String> executedCommandsList = new List<String>();
         int maxSystemMemory;
+        string playerUUID;
         public int executedCommandsIndex;
 
         public ServerGui()
@@ -40,6 +41,7 @@ namespace ServerGui
 
         private void Process_OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
+
             this.Invoke(new MethodInvoker(() =>
             {
                 if (!String.IsNullOrEmpty(e.Data))
@@ -48,6 +50,23 @@ namespace ServerGui
                     if (!string.IsNullOrWhiteSpace(ConsoleTextBox.Text))
                     {
                         ConsoleTextBox.AppendText("\r\n" + e.Data);
+                        if (e.Data.Contains("UUID of player"))
+                        {
+                            string[] line = e.Data.Split(' ');
+                            this.playerUUID = line[line.Length - 1];
+                        }
+                        if (e.Data.Contains("logged in"))
+                        {
+                            Console.WriteLine("logged in!");
+                            string[] line = e.Data.Split(' ');
+                            Dictionary<object, string> player_information = new Dictionary<object, string>
+                            {
+                                ["name"] = line[2].Split('[')[0],
+                                ["ip"] = line[2].Split('/')[1].Replace("]", string.Empty),
+                                ["uuid"] = this.playerUUID
+                            };
+                            Console.WriteLine(String.Format("Player {0} joined with IP {1} and UUID {2}", player_information["name"], player_information["ip"], player_information["uuid"]));
+                        }
                     }
                     else
                     {
