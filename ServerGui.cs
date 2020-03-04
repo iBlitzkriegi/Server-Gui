@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
+using Microsoft.VisualBasic.Devices;
 
 namespace ServerGui
 {
@@ -9,7 +10,9 @@ namespace ServerGui
     {
         Process compiler = null;
         List<String> executedCommandsList = new List<String>();
+        int maxSystemMemory;
         public int executedCommandsIndex;
+
         public ServerGui()
         {
             InitializeComponent();
@@ -198,7 +201,8 @@ namespace ServerGui
                         {
                             this.CommandTextBox.Text = this.executedCommandsList[this.executedCommandsIndex];
                         }
-                    } else
+                    }
+                    else
                     {
                         this.CommandTextBox.Text = "";
                     }
@@ -223,6 +227,8 @@ namespace ServerGui
         private void ServerGui_Load(object sender, EventArgs e)
         {
             this.timer1.Enabled = true;
+            this.maxSystemMemory = Convert.ToInt32(new ComputerInfo().TotalPhysicalMemory / 1024 / 1024);
+
         }
 
 
@@ -239,9 +245,8 @@ namespace ServerGui
             }
             if (ram != 0)
             {
-                //TODO Actually calculate max ram here
                 int value = (int)(ram / 16000 * 100);
-                Console.WriteLine(value);
+                value = 100 - value;
                 RamProgressBar.Value = value;
                 RamPercentLabel.Text = value.ToString() + "%";
             }
