@@ -234,18 +234,17 @@ namespace ServerGui
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //TODO Update variable naming, 
-            //Also need to implement GUI memory usage statistics
-            float fcpu = CPU.NextValue();
-            float ram = RAM.NextValue();
-            if (fcpu != 0)
+            //Implement GUI memory usage statistics
+            float cpuUsage = CPU.NextValue();
+            float ramUsage = RAM.NextValue();
+            if (cpuUsage != 0)
             {
-                CpuProgressBar.Value = (int)fcpu;
-                CpuPercentLabel.Text = ((int)fcpu).ToString() + "%";
+                CpuProgressBar.Value = (int)cpuUsage;
+                CpuPercentLabel.Text = String.Format("{0}%", ((int)cpuUsage).ToString());
             }
-            if (ram != 0)
+            if (ramUsage != 0)
             {
-                int value = (int)(ram / 16000 * 100);
+                int value = (int)(ramUsage / 16000 * 100);
                 value = 100 - value;
                 RamProgressBar.Value = value;
                 RamPercentLabel.Text = value.ToString() + "%";
