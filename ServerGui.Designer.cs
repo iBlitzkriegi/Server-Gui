@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -60,6 +61,9 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.PlayersListBox = new System.Windows.Forms.ListBox();
             this.ConsoleTextBox = new System.Windows.Forms.RichTextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.CPU = new System.Diagnostics.PerformanceCounter();
+            this.RAM = new System.Diagnostics.PerformanceCounter();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.BottomHalfOfConsole.SuspendLayout();
@@ -75,6 +79,8 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CPU)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RAM)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -450,6 +456,22 @@
             this.ConsoleTextBox.TabIndex = 1;
             this.ConsoleTextBox.Text = "";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // CPU
+            // 
+            this.CPU.CategoryName = "Processor";
+            this.CPU.CounterName = "% Processor Time";
+            this.CPU.InstanceName = "_Total";
+            // 
+            // RAM
+            // 
+            this.RAM.CategoryName = "Memory";
+            this.RAM.CounterName = "Available MBytes";
+            // 
             // ServerGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -460,6 +482,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Server Gui - iBlitzkriegi";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServerGui_FormClosing);
+            this.Load += new System.EventHandler(this.ServerGui_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.BottomHalfOfConsole.ResumeLayout(false);
@@ -480,6 +503,8 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CPU)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RAM)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -517,6 +542,9 @@
         private System.Windows.Forms.RichTextBox ConsoleTextBox;
         private System.Windows.Forms.FlowLayoutPanel ConsolePageUiElementsPanel;
         private System.Windows.Forms.FlowLayoutPanel BottomHalfOfConsole;
+        private System.Windows.Forms.Timer timer1;
+        private System.Diagnostics.PerformanceCounter CPU;
+        private System.Diagnostics.PerformanceCounter RAM;
     }
 }
 

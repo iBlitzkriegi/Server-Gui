@@ -219,6 +219,35 @@ namespace ServerGui
 
 
         }
+
+        private void ServerGui_Load(object sender, EventArgs e)
+        {
+            this.timer1.Enabled = true;
+        }
+
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //TODO Update variable naming, 
+            //Also need to implement GUI memory usage statistics
+            float fcpu = CPU.NextValue();
+            float ram = RAM.NextValue();
+            if (fcpu != 0)
+            {
+                CpuProgressBar.Value = (int)fcpu;
+                CpuPercentLabel.Text = ((int)fcpu).ToString() + "%";
+            }
+            if (ram != 0)
+            {
+                //TODO Actually calculate max ram here
+                int value = (int)(ram / 16000 * 100);
+                Console.WriteLine(value);
+                RamProgressBar.Value = value;
+                RamPercentLabel.Text = value.ToString() + "%";
+            }
+
+        }
+
     }
 }
 
