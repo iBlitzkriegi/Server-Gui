@@ -42,16 +42,20 @@ namespace ServerGui
         {
             this.Invoke(new MethodInvoker(() =>
             {
-                if (!string.IsNullOrWhiteSpace(ConsoleTextBox.Text))
+                if (!String.IsNullOrEmpty(e.Data))
                 {
-                    ConsoleTextBox.AppendText("\r\n" + e.Data);
+                    //Console.WriteLine(String.IsNullOrEmpty(e.Data));
+                    if (!string.IsNullOrWhiteSpace(ConsoleTextBox.Text))
+                    {
+                        ConsoleTextBox.AppendText("\r\n" + e.Data);
+                    }
+                    else
+                    {
+                        ConsoleTextBox.AppendText(e.Data);
+                    }
+                    ConsoleTextBox.Select(ConsoleTextBox.TextLength, 0);
+                    ConsoleTextBox.ScrollToCaret();
                 }
-                else
-                {
-                    ConsoleTextBox.AppendText(e.Data);
-                }
-                ConsoleTextBox.Select(ConsoleTextBox.TextLength, 0);
-                ConsoleTextBox.ScrollToCaret();
             }));
         }
 
