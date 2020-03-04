@@ -447,7 +447,7 @@
             // ConsoleTextBox
             // 
             this.ConsoleTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ConsoleTextBox.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConsoleTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConsoleTextBox.Location = new System.Drawing.Point(0, 0);
             this.ConsoleTextBox.Margin = new System.Windows.Forms.Padding(30);
             this.ConsoleTextBox.Name = "ConsoleTextBox";

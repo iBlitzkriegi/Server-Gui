@@ -46,7 +46,6 @@ namespace ServerGui
             {
                 if (!String.IsNullOrEmpty(e.Data))
                 {
-                    //Console.WriteLine(String.IsNullOrEmpty(e.Data));
                     if (!string.IsNullOrWhiteSpace(ConsoleTextBox.Text))
                     {
                         ConsoleTextBox.AppendText("\r\n" + e.Data);
