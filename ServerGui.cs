@@ -66,6 +66,7 @@ namespace ServerGui
                                 ["uuid"] = this.playerUUID
                             };
                             Console.WriteLine(String.Format("Player {0} joined with IP {1} and UUID {2}", player_information["name"], player_information["ip"], player_information["uuid"]));
+                            this.playerUUID == "";
                         }
                     }
                     else
