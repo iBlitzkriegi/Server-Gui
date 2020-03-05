@@ -8,6 +8,13 @@ namespace ServerGui
 {
     public partial class ServerGui : Form
     {
+        //TODO 
+        //Make a global list of players so that when one leaves they can be removed from the list and the list can be reloaded.
+        //Make OutputDataReceived also detect when a player leaves the game
+        //Make playerFlowPanel remove players when they leave
+        //Implement the gamemode section of the player context menu
+        //Find actual icons for each item in the context menu 
+        //
         Process compiler = null;
         List<String> executedCommandsList = new List<String>();
         int maxSystemMemory;
