@@ -115,6 +115,8 @@ namespace ServerGui
 
         private void ExecuteCommand(String command)
         {
+            //TODO Add optiona boolean to decide if it should be added to executedCOmmandsList for things like stop
+            //Or context menu commands
             if (this.compiler != null)
             {
                 System.IO.StreamWriter sr = this.compiler.StandardInput;
