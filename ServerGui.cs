@@ -40,7 +40,13 @@ namespace ServerGui
         {
             if (e.KeyChar == (char)Keys.Return)
             {
-                this.ExecuteCommand(this.CommandTextBox.Text);
+                if (SayCheckBox.Checked)
+                {
+                    this.ExecuteServerCommand("say " + this.CommandTextBox.Text);
+                } else
+                {
+                    this.ExecuteCommand(this.CommandTextBox.Text);
+                }
                 e.Handled = true;
                 this.CommandTextBox.Text = "";
             }
@@ -119,15 +125,15 @@ namespace ServerGui
             this.PlayerFlowPanel.Controls.Add(button);
         }
 
-        private void ExecuteCommand(String command, bool treatNormal)
+        private void ExecuteCommand(String command)
         {
             //TODO Add optiona boolean to decide if it should be added to executedCOmmandsList for things like stop
             //Or context menu commands
             if (this.compiler != null)
             {
                 System.IO.StreamWriter sr = this.compiler.StandardInput;
-                string cmd = this.SayCheckBox.Checked ? "say " + command : command;
-                sr.WriteLine(cmd);
+                command = SayCheckBox.Checked ? "say " + command : command;
+                sr.WriteLine(command);
                 this.executedCommandsList.Add(command);
             }
         }
@@ -157,7 +163,7 @@ namespace ServerGui
 
         void StopServer()
         {
-            this.ExecuteCommand("stop");
+            this.ExecuteServerCommand("stop");
             this.compiler.Close();
             this.compiler = null;
             this.StartButton.Text = "Start";
@@ -194,8 +200,8 @@ namespace ServerGui
 
         private void ReloadButton_Click(object sender, EventArgs e)
         {
-            this.ExecuteCommand("reload");
-            this.ExecuteCommand("reload confirm");
+            this.ExecuteServerCommand("reload");
+            this.ExecuteServerCommand("reload confirm");
         }
 
         private void RestartButton_Click(object sender, EventArgs e)
@@ -232,7 +238,7 @@ namespace ServerGui
             if (!clickedItem.Contains("gamemode"))
             {
                 Console.WriteLine(String.Format("Potential command: {0} {1}", clickedItem, playerName));
-                this.ExecuteCommand(clickedItem + " " + playerName);
+                this.ExecuteServerCommand(clickedItem + " " + playerName);
             }
         }
 
@@ -240,7 +246,7 @@ namespace ServerGui
         {
             if (this.compiler != null)
             {
-                this.ExecuteCommand("stop");
+                this.ExecuteServerCommand("stop");
                 this.compiler.Kill();
             }
         }
@@ -321,10 +327,16 @@ namespace ServerGui
 
         }
 
+        void ExecuteServerCommand(string command)
+        {
+            System.IO.StreamWriter sr = this.compiler.StandardInput;
+            sr.WriteLine(command);
+        }
+
         private void GamemodeMenu_Clicked(object sender, EventArgs e)
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
-            this.ExecuteCommand(String.Format("gamemode {0} {1}", item.Text.ToLower(), playerName));
+            this.ExecuteServerCommand(String.Format("gamemode {0} {1}", item.Text.ToLower(), playerName));
         }
     }
 }
