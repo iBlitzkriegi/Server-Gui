@@ -267,7 +267,7 @@ namespace ServerGui
             }
             if (ramUsage != 0)
             {
-                int value = (int)(ramUsage / 16000 * 100);
+                int value = (int)(ramUsage / this.maxSystemMemory * 100);
                 value = 100 - value;
                 RamProgressBar.Value = value;
                 RamPercentLabel.Text = value.ToString() + "%";
