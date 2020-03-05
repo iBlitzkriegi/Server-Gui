@@ -119,7 +119,7 @@ namespace ServerGui
             this.PlayerFlowPanel.Controls.Add(button);
         }
 
-        private void ExecuteCommand(String command)
+        private void ExecuteCommand(String command, bool treatNormal)
         {
             //TODO Add optiona boolean to decide if it should be added to executedCOmmandsList for things like stop
             //Or context menu commands
@@ -127,7 +127,7 @@ namespace ServerGui
             {
                 System.IO.StreamWriter sr = this.compiler.StandardInput;
                 string cmd = this.SayCheckBox.Checked ? "say " + command : command;
-                sr.WriteLine(command);
+                sr.WriteLine(cmd);
                 this.executedCommandsList.Add(command);
             }
         }
