@@ -11,6 +11,7 @@ namespace ServerGui
         Process compiler = null;
         List<String> executedCommandsList = new List<String>();
         int maxSystemMemory;
+        string playerName;
         string playerUUID;
         public int executedCommandsIndex;
 
@@ -65,6 +66,7 @@ namespace ServerGui
                                 ["uuid"] = this.playerUUID
                             };
                             Console.WriteLine(String.Format("Player {0} joined with IP {1} and UUID {2}", player_information["name"], player_information["ip"], player_information["uuid"]));
+                            add_player(player_information["name"]);
                             this.playerUUID = "";
                         }
                     }
@@ -103,6 +105,7 @@ namespace ServerGui
                 {
                     case MouseButtons.Right:
                         contextMenuStrip1.Show(Cursor.Position);
+                        playerName = button.Text;
                         break;
                 }
             };
@@ -112,6 +115,7 @@ namespace ServerGui
 
         private void ExecuteCommand(String command)
         {
+            this.add_player("test");
             if (this.compiler != null)
             {
                 System.IO.StreamWriter sr = this.compiler.StandardInput;
@@ -220,6 +224,12 @@ namespace ServerGui
             this.GuiProgressBar.Width = progressBarWidth;
             this.CpuProgressBar.Width = progressBarWidth;
             this.RamProgressBar.Width = progressBarWidth;
+        }
+
+        private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            string clickedItem = e.ClickedItem.Text.ToLower().Replace("-", string.Empty);
+            Console.WriteLine(String.Format("Potential command: {0} {1}", clickedItem, playerName));
         }
 
         private void ServerGui_FormClosing(object sender, FormClosingEventArgs e)

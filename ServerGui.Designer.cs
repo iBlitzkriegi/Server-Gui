@@ -59,15 +59,20 @@
             this.RamProgressBar = new System.Windows.Forms.ProgressBar();
             this.RamPercentLabel = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.PlayerFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.ConsoleTextBox = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.CPU = new System.Diagnostics.PerformanceCounter();
             this.RAM = new System.Diagnostics.PerformanceCounter();
-            this.PlayerFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.rawrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rawrToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.rawrToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.opToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deOpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kickToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.banToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gamemodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.survivalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.creativeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.spectatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.BottomHalfOfConsole.SuspendLayout();
@@ -437,6 +442,18 @@
             this.splitContainer1.SplitterDistance = 152;
             this.splitContainer1.TabIndex = 2;
             // 
+            // PlayerFlowPanel
+            // 
+            this.PlayerFlowPanel.AutoScroll = true;
+            this.PlayerFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PlayerFlowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PlayerFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.PlayerFlowPanel.Location = new System.Drawing.Point(0, 0);
+            this.PlayerFlowPanel.Name = "PlayerFlowPanel";
+            this.PlayerFlowPanel.Size = new System.Drawing.Size(152, 471);
+            this.PlayerFlowPanel.TabIndex = 0;
+            this.PlayerFlowPanel.WrapContents = false;
+            // 
             // ConsoleTextBox
             // 
             this.ConsoleTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -465,44 +482,74 @@
             this.RAM.CategoryName = "Memory";
             this.RAM.CounterName = "Available MBytes";
             // 
-            // PlayerFlowPanel
-            // 
-            this.PlayerFlowPanel.AutoScroll = true;
-            this.PlayerFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PlayerFlowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PlayerFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.PlayerFlowPanel.Location = new System.Drawing.Point(0, 0);
-            this.PlayerFlowPanel.Name = "PlayerFlowPanel";
-            this.PlayerFlowPanel.Size = new System.Drawing.Size(152, 471);
-            this.PlayerFlowPanel.TabIndex = 0;
-            this.PlayerFlowPanel.WrapContents = false;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rawrToolStripMenuItem,
-            this.rawrToolStripMenuItem1,
-            this.rawrToolStripMenuItem2});
+            this.opToolStripMenuItem,
+            this.deOpToolStripMenuItem,
+            this.kickToolStripMenuItem,
+            this.banToolStripMenuItem,
+            this.gamemodeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(98, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 136);
+            this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
             // 
-            // rawrToolStripMenuItem
+            // opToolStripMenuItem
             // 
-            this.rawrToolStripMenuItem.Name = "rawrToolStripMenuItem";
-            this.rawrToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
-            this.rawrToolStripMenuItem.Text = "rawr";
+            this.opToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
+            this.opToolStripMenuItem.Name = "opToolStripMenuItem";
+            this.opToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.opToolStripMenuItem.Text = "Op";
             // 
-            // rawrToolStripMenuItem1
+            // deOpToolStripMenuItem
             // 
-            this.rawrToolStripMenuItem1.Name = "rawrToolStripMenuItem1";
-            this.rawrToolStripMenuItem1.Size = new System.Drawing.Size(97, 22);
-            this.rawrToolStripMenuItem1.Text = "rawr";
+            this.deOpToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
+            this.deOpToolStripMenuItem.Name = "deOpToolStripMenuItem";
+            this.deOpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deOpToolStripMenuItem.Text = "De-Op";
             // 
-            // rawrToolStripMenuItem2
+            // kickToolStripMenuItem
             // 
-            this.rawrToolStripMenuItem2.Name = "rawrToolStripMenuItem2";
-            this.rawrToolStripMenuItem2.Size = new System.Drawing.Size(97, 22);
-            this.rawrToolStripMenuItem2.Text = "rawr";
+            this.kickToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
+            this.kickToolStripMenuItem.Name = "kickToolStripMenuItem";
+            this.kickToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kickToolStripMenuItem.Text = "Kick";
+            // 
+            // banToolStripMenuItem
+            // 
+            this.banToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
+            this.banToolStripMenuItem.Name = "banToolStripMenuItem";
+            this.banToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.banToolStripMenuItem.Text = "Ban";
+            // 
+            // gamemodeToolStripMenuItem
+            // 
+            this.gamemodeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.survivalToolStripMenuItem,
+            this.creativeToolStripMenuItem,
+            this.spectatorToolStripMenuItem});
+            this.gamemodeToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
+            this.gamemodeToolStripMenuItem.Name = "gamemodeToolStripMenuItem";
+            this.gamemodeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gamemodeToolStripMenuItem.Text = "Gamemode";
+            // 
+            // survivalToolStripMenuItem
+            // 
+            this.survivalToolStripMenuItem.Name = "survivalToolStripMenuItem";
+            this.survivalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.survivalToolStripMenuItem.Text = "Survival";
+            // 
+            // creativeToolStripMenuItem
+            // 
+            this.creativeToolStripMenuItem.Name = "creativeToolStripMenuItem";
+            this.creativeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.creativeToolStripMenuItem.Text = "Creative";
+            // 
+            // spectatorToolStripMenuItem
+            // 
+            this.spectatorToolStripMenuItem.Name = "spectatorToolStripMenuItem";
+            this.spectatorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.spectatorToolStripMenuItem.Text = "Spectator";
             // 
             // ServerGui
             // 
@@ -579,9 +626,14 @@
         private System.Diagnostics.PerformanceCounter RAM;
         private System.Windows.Forms.FlowLayoutPanel PlayerFlowPanel;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem rawrToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rawrToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem rawrToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem opToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deOpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kickToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem banToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gamemodeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem survivalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem creativeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem spectatorToolStripMenuItem;
     }
 }
 
