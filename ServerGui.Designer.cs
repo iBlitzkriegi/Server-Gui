@@ -491,35 +491,35 @@
             this.banToolStripMenuItem,
             this.gamemodeToolStripMenuItem});
             this.PlayersContextMenu.Name = "contextMenuStrip1";
-            this.PlayersContextMenu.Size = new System.Drawing.Size(137, 114);
+            this.PlayersContextMenu.Size = new System.Drawing.Size(181, 136);
             this.PlayersContextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
             // 
             // opToolStripMenuItem
             // 
             this.opToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
             this.opToolStripMenuItem.Name = "opToolStripMenuItem";
-            this.opToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.opToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.opToolStripMenuItem.Text = "Op";
             // 
             // deOpToolStripMenuItem
             // 
             this.deOpToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
             this.deOpToolStripMenuItem.Name = "deOpToolStripMenuItem";
-            this.deOpToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.deOpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deOpToolStripMenuItem.Text = "De-Op";
             // 
             // kickToolStripMenuItem
             // 
             this.kickToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
             this.kickToolStripMenuItem.Name = "kickToolStripMenuItem";
-            this.kickToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.kickToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.kickToolStripMenuItem.Text = "Kick";
             // 
             // banToolStripMenuItem
             // 
             this.banToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
             this.banToolStripMenuItem.Name = "banToolStripMenuItem";
-            this.banToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.banToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.banToolStripMenuItem.Text = "Ban";
             // 
             // gamemodeToolStripMenuItem
@@ -530,7 +530,7 @@
             this.spectatorToolStripMenuItem});
             this.gamemodeToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
             this.gamemodeToolStripMenuItem.Name = "gamemodeToolStripMenuItem";
-            this.gamemodeToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.gamemodeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gamemodeToolStripMenuItem.Text = "Gamemode";
             // 
             // survivalToolStripMenuItem
@@ -538,18 +538,23 @@
             this.survivalToolStripMenuItem.Name = "survivalToolStripMenuItem";
             this.survivalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.survivalToolStripMenuItem.Text = "Survival";
+            this.survivalToolStripMenuItem.Click += new System.EventHandler(this.GamemodeMenu_Clicked);
             // 
             // creativeToolStripMenuItem
             // 
             this.creativeToolStripMenuItem.Name = "creativeToolStripMenuItem";
             this.creativeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.creativeToolStripMenuItem.Text = "Creative";
+            this.creativeToolStripMenuItem.Click += new System.EventHandler(this.GamemodeMenu_Clicked);
             // 
             // spectatorToolStripMenuItem
             // 
             this.spectatorToolStripMenuItem.Name = "spectatorToolStripMenuItem";
             this.spectatorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.spectatorToolStripMenuItem.Text = "Spectator";
+            this.spectatorToolStripMenuItem.Click += new System.EventHandler(this.GamemodeMenu_Clicked);
+
+
             // 
             // ServerGui
             // 

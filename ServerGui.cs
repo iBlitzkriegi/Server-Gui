@@ -102,12 +102,11 @@ namespace ServerGui
             button.Size = new System.Drawing.Size(101, 24);
             button.Margin = new Padding(5, 0, 0, 0);
             button.TabIndex = 0;
-            button.Text = "iBlitzkriegi";
+            button.Text = name;
             button.TextImageRelation = TextImageRelation.ImageBeforeText;
             button.UseVisualStyleBackColor = true;
             button.MouseDown += (clickSender, clickEvent) =>
             {
-                Console.WriteLine("clicked");
                 switch (clickEvent.Button)
                 {
                     case MouseButtons.Right:
@@ -237,8 +236,11 @@ namespace ServerGui
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             string clickedItem = e.ClickedItem.Text.ToLower().Replace("-", string.Empty);
-            Console.WriteLine(String.Format("Potential command: {0} {1}", clickedItem, playerName));
-            this.ExecuteCommand(clickedItem + " " + playerName);
+            if (!clickedItem.Contains("gamemode"))
+            {
+                Console.WriteLine(String.Format("Potential command: {0} {1}", clickedItem, playerName));
+                this.ExecuteCommand(clickedItem + " " + playerName);
+            }
         }
 
         private void ServerGui_FormClosing(object sender, FormClosingEventArgs e)
@@ -326,6 +328,11 @@ namespace ServerGui
 
         }
 
+        private void GamemodeMenu_Clicked(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+            this.ExecuteCommand(String.Format("gamemode {0} {1}", item.Text.ToLower(), playerName));
+        }
     }
 }
 
