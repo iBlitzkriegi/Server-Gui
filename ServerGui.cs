@@ -300,7 +300,7 @@ namespace ServerGui
 
         private void ServerGui_Load(object sender, EventArgs e)
         {
-            this.timer1.Enabled = true;
+            this.ProgressBarTimer.Enabled = true;
             this.maxSystemMemory = Convert.ToInt32(new ComputerInfo().TotalPhysicalMemory / 1024 / 1024);
 
         }

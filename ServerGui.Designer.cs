@@ -61,7 +61,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.PlayerFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.ConsoleTextBox = new System.Windows.Forms.RichTextBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ProgressBarTimer = new System.Windows.Forms.Timer(this.components);
             this.CPU = new System.Diagnostics.PerformanceCounter();
             this.RAM = new System.Diagnostics.PerformanceCounter();
             this.PlayersContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -466,10 +466,10 @@
             this.ConsoleTextBox.TabIndex = 1;
             this.ConsoleTextBox.Text = "";
             // 
-            // timer1
+            // ProgressBarTimer
             // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.ProgressBarTimer.Interval = 1000;
+            this.ProgressBarTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // CPU
             // 
@@ -491,35 +491,35 @@
             this.banToolStripMenuItem,
             this.gamemodeToolStripMenuItem});
             this.PlayersContextMenu.Name = "contextMenuStrip1";
-            this.PlayersContextMenu.Size = new System.Drawing.Size(181, 136);
+            this.PlayersContextMenu.Size = new System.Drawing.Size(137, 114);
             this.PlayersContextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
             // 
             // opToolStripMenuItem
             // 
             this.opToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
             this.opToolStripMenuItem.Name = "opToolStripMenuItem";
-            this.opToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.opToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.opToolStripMenuItem.Text = "Op";
             // 
             // deOpToolStripMenuItem
             // 
             this.deOpToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
             this.deOpToolStripMenuItem.Name = "deOpToolStripMenuItem";
-            this.deOpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deOpToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.deOpToolStripMenuItem.Text = "De-Op";
             // 
             // kickToolStripMenuItem
             // 
             this.kickToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
             this.kickToolStripMenuItem.Name = "kickToolStripMenuItem";
-            this.kickToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kickToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.kickToolStripMenuItem.Text = "Kick";
             // 
             // banToolStripMenuItem
             // 
             this.banToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
             this.banToolStripMenuItem.Name = "banToolStripMenuItem";
-            this.banToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.banToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.banToolStripMenuItem.Text = "Ban";
             // 
             // gamemodeToolStripMenuItem
@@ -530,7 +530,7 @@
             this.spectatorToolStripMenuItem});
             this.gamemodeToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
             this.gamemodeToolStripMenuItem.Name = "gamemodeToolStripMenuItem";
-            this.gamemodeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gamemodeToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.gamemodeToolStripMenuItem.Text = "Gamemode";
             // 
             // survivalToolStripMenuItem
@@ -621,7 +621,7 @@
         private System.Windows.Forms.RichTextBox ConsoleTextBox;
         private System.Windows.Forms.FlowLayoutPanel ConsolePageUiElementsPanel;
         private System.Windows.Forms.FlowLayoutPanel BottomHalfOfConsole;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer ProgressBarTimer;
         private System.Diagnostics.PerformanceCounter CPU;
         private System.Diagnostics.PerformanceCounter RAM;
         private System.Windows.Forms.FlowLayoutPanel PlayerFlowPanel;
