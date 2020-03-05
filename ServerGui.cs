@@ -78,6 +78,38 @@ namespace ServerGui
             }));
         }
 
+        void add_player(string name)
+        {
+            Button button = new Button();
+            button.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            button.FlatAppearance.BorderSize = 0;
+            button.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            button.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
+            button.FlatStyle = FlatStyle.Flat;
+            button.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            button.Image = Properties.Resources.head;
+            button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            button.Name = "button1";
+            button.Size = new System.Drawing.Size(101, 24);
+            button.Margin = new Padding(5, 0, 0, 0);
+            button.TabIndex = 0;
+            button.Text = "iBlitzkriegi";
+            button.TextImageRelation = TextImageRelation.ImageBeforeText;
+            button.UseVisualStyleBackColor = true;
+            button.MouseDown += (clickSender, clickEvent) =>
+            {
+                Console.WriteLine("clicked");
+                switch (clickEvent.Button)
+                {
+                    case MouseButtons.Right:
+                        contextMenuStrip1.Show(Cursor.Position);
+                        break;
+                }
+            };
+
+            this.PlayerFlowPanel.Controls.Add(button);
+        }
+
         private void ExecuteCommand(String command)
         {
             if (this.compiler != null)

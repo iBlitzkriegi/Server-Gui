@@ -59,11 +59,15 @@
             this.RamProgressBar = new System.Windows.Forms.ProgressBar();
             this.RamPercentLabel = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.PlayersListBox = new System.Windows.Forms.ListBox();
             this.ConsoleTextBox = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.CPU = new System.Diagnostics.PerformanceCounter();
             this.RAM = new System.Diagnostics.PerformanceCounter();
+            this.PlayerFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.rawrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rawrToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.rawrToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.BottomHalfOfConsole.SuspendLayout();
@@ -81,6 +85,7 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CPU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RAM)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -422,7 +427,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.PlayersListBox);
+            this.splitContainer1.Panel1.Controls.Add(this.PlayerFlowPanel);
             // 
             // splitContainer1.Panel2
             // 
@@ -431,18 +436,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(968, 471);
             this.splitContainer1.SplitterDistance = 152;
             this.splitContainer1.TabIndex = 2;
-            // 
-            // PlayersListBox
-            // 
-            this.PlayersListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PlayersListBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlayersListBox.FormattingEnabled = true;
-            this.PlayersListBox.IntegralHeight = false;
-            this.PlayersListBox.ItemHeight = 19;
-            this.PlayersListBox.Location = new System.Drawing.Point(0, 0);
-            this.PlayersListBox.Name = "PlayersListBox";
-            this.PlayersListBox.Size = new System.Drawing.Size(152, 471);
-            this.PlayersListBox.TabIndex = 0;
             // 
             // ConsoleTextBox
             // 
@@ -471,6 +464,45 @@
             // 
             this.RAM.CategoryName = "Memory";
             this.RAM.CounterName = "Available MBytes";
+            // 
+            // PlayerFlowPanel
+            // 
+            this.PlayerFlowPanel.AutoScroll = true;
+            this.PlayerFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PlayerFlowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PlayerFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.PlayerFlowPanel.Location = new System.Drawing.Point(0, 0);
+            this.PlayerFlowPanel.Name = "PlayerFlowPanel";
+            this.PlayerFlowPanel.Size = new System.Drawing.Size(152, 471);
+            this.PlayerFlowPanel.TabIndex = 0;
+            this.PlayerFlowPanel.WrapContents = false;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rawrToolStripMenuItem,
+            this.rawrToolStripMenuItem1,
+            this.rawrToolStripMenuItem2});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(98, 70);
+            // 
+            // rawrToolStripMenuItem
+            // 
+            this.rawrToolStripMenuItem.Name = "rawrToolStripMenuItem";
+            this.rawrToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.rawrToolStripMenuItem.Text = "rawr";
+            // 
+            // rawrToolStripMenuItem1
+            // 
+            this.rawrToolStripMenuItem1.Name = "rawrToolStripMenuItem1";
+            this.rawrToolStripMenuItem1.Size = new System.Drawing.Size(97, 22);
+            this.rawrToolStripMenuItem1.Text = "rawr";
+            // 
+            // rawrToolStripMenuItem2
+            // 
+            this.rawrToolStripMenuItem2.Name = "rawrToolStripMenuItem2";
+            this.rawrToolStripMenuItem2.Size = new System.Drawing.Size(97, 22);
+            this.rawrToolStripMenuItem2.Text = "rawr";
             // 
             // ServerGui
             // 
@@ -505,6 +537,7 @@
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CPU)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RAM)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -538,13 +571,17 @@
         private System.Windows.Forms.ProgressBar GuiProgressBar;
         private System.Windows.Forms.Label GuiPercentLabel;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ListBox PlayersListBox;
         private System.Windows.Forms.RichTextBox ConsoleTextBox;
         private System.Windows.Forms.FlowLayoutPanel ConsolePageUiElementsPanel;
         private System.Windows.Forms.FlowLayoutPanel BottomHalfOfConsole;
         private System.Windows.Forms.Timer timer1;
         private System.Diagnostics.PerformanceCounter CPU;
         private System.Diagnostics.PerformanceCounter RAM;
+        private System.Windows.Forms.FlowLayoutPanel PlayerFlowPanel;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem rawrToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rawrToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem rawrToolStripMenuItem2;
     }
 }
 
