@@ -104,7 +104,7 @@ namespace ServerGui
                 switch (clickEvent.Button)
                 {
                     case MouseButtons.Right:
-                        contextMenuStrip1.Show(Cursor.Position);
+                        PlayersContextMenu.Show(Cursor.Position);
                         playerName = button.Text;
                         break;
                 }
@@ -115,7 +115,6 @@ namespace ServerGui
 
         private void ExecuteCommand(String command)
         {
-            this.add_player("test");
             if (this.compiler != null)
             {
                 System.IO.StreamWriter sr = this.compiler.StandardInput;
@@ -230,6 +229,7 @@ namespace ServerGui
         {
             string clickedItem = e.ClickedItem.Text.ToLower().Replace("-", string.Empty);
             Console.WriteLine(String.Format("Potential command: {0} {1}", clickedItem, playerName));
+            this.ExecuteCommand(clickedItem + " " + playerName);
         }
 
         private void ServerGui_FormClosing(object sender, FormClosingEventArgs e)

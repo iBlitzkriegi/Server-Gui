@@ -64,7 +64,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.CPU = new System.Diagnostics.PerformanceCounter();
             this.RAM = new System.Diagnostics.PerformanceCounter();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.PlayersContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.opToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deOpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kickToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,7 +90,7 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CPU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RAM)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
+            this.PlayersContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -482,17 +482,17 @@
             this.RAM.CategoryName = "Memory";
             this.RAM.CounterName = "Available MBytes";
             // 
-            // contextMenuStrip1
+            // PlayersContextMenu
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.PlayersContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.opToolStripMenuItem,
             this.deOpToolStripMenuItem,
             this.kickToolStripMenuItem,
             this.banToolStripMenuItem,
             this.gamemodeToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 136);
-            this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
+            this.PlayersContextMenu.Name = "contextMenuStrip1";
+            this.PlayersContextMenu.Size = new System.Drawing.Size(181, 136);
+            this.PlayersContextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
             // 
             // opToolStripMenuItem
             // 
@@ -584,7 +584,7 @@
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CPU)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RAM)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.PlayersContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -625,7 +625,7 @@
         private System.Diagnostics.PerformanceCounter CPU;
         private System.Diagnostics.PerformanceCounter RAM;
         private System.Windows.Forms.FlowLayoutPanel PlayerFlowPanel;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip PlayersContextMenu;
         private System.Windows.Forms.ToolStripMenuItem opToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deOpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kickToolStripMenuItem;
