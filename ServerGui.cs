@@ -126,16 +126,9 @@ namespace ServerGui
             if (this.compiler != null)
             {
                 System.IO.StreamWriter sr = this.compiler.StandardInput;
-                if (this.SayCheckBox.Checked)
-                {
-                    sr.WriteLine("say " + command);
-                    this.executedCommandsList.Add("say " + command);
-                }
-                else
-                {
-                    sr.WriteLine(command);
-                    this.executedCommandsList.Add(command);
-                }
+                string cmd = this.SayCheckBox.Checked ? "say " + command : command;
+                sr.WriteLine(command);
+                this.executedCommandsList.Add(command);
             }
         }
 
