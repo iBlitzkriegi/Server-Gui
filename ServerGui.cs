@@ -9,13 +9,11 @@ namespace ServerGui
     public partial class ServerGui : Form
     {
         //TODO 
-        //Make a global list of players so that when one leaves they can be removed from the list and the list can be reloaded.
-        //Make OutputDataReceived also detect when a player leaves the game
-        //Make playerFlowPanel remove players when they leave
         //Find actual icons for each item in the context menu 
-        //
         Process compiler = null;
         List<String> executedCommandsList = new List<String>();
+        Dictionary<object, Dictionary<object, string>> players_list = new Dictionary<object, Dictionary<object, string>>();
+
         int maxSystemMemory;
         string playerName;
         string playerUUID;
@@ -67,9 +65,9 @@ namespace ServerGui
                             string[] line = e.Data.Split(' ');
                             this.playerUUID = line[line.Length - 1];
                         }
-                        if (e.Data.Contains("logged in"))
+                        string data = e.Data;
+                        if (data.Contains("logged in"))
                         {
-                            Console.WriteLine("logged in!");
                             string[] line = e.Data.Split(' ');
                             Dictionary<object, string> player_information = new Dictionary<object, string>
                             {
@@ -79,7 +77,13 @@ namespace ServerGui
                             };
                             Console.WriteLine(String.Format("Player {0} joined with IP {1} and UUID {2}", player_information["name"], player_information["ip"], player_information["uuid"]));
                             add_player(player_information["name"]);
+                            players_list.Add(player_information["name"], player_information);
                             this.playerUUID = "";
+                        } else if (data.Contains("left the game"))
+                        {
+                            string name = e.Data.Split(' ')[2];
+                            players_list.Remove(name);
+                            remove_player(name);
                         }
                     }
                     else
@@ -103,7 +107,7 @@ namespace ServerGui
             button.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             button.Image = Properties.Resources.head;
             button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            button.Name = "button1";
+            button.Name = name;
             button.Size = new System.Drawing.Size(101, 24);
             button.Margin = new Padding(5, 0, 0, 0);
             button.TabIndex = 0;
@@ -124,10 +128,14 @@ namespace ServerGui
             this.PlayerFlowPanel.Controls.Add(button);
         }
 
+        void remove_player(string name)
+        {
+            Button button = (Button)this.PlayerFlowPanel.Controls.Find(name, true)[0];
+            this.PlayerFlowPanel.Controls.Remove(button);
+        }
+
         private void ExecuteCommand(String command)
         {
-            //TODO Add optiona boolean to decide if it should be added to executedCOmmandsList for things like stop
-            //Or context menu commands
             if (this.compiler != null)
             {
                 System.IO.StreamWriter sr = this.compiler.StandardInput;
