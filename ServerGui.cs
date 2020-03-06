@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 using Microsoft.VisualBasic.Devices;
+using System.Net;
+using System.Drawing;
 
 namespace ServerGui
 {
@@ -76,7 +78,7 @@ namespace ServerGui
                                 ["uuid"] = this.playerUUID
                             };
                             Console.WriteLine(String.Format("Player {0} joined with IP {1} and UUID {2}", player_information["name"], player_information["ip"], player_information["uuid"]));
-                            add_player(player_information["name"]);
+                            add_player(player_information["name"], player_information["uuid"]);
                             players_list.Add(player_information["name"], player_information);
                             this.playerUUID = "";
                         } else if (data.Contains("left the game"))
@@ -96,16 +98,25 @@ namespace ServerGui
             }));
         }
 
-        void add_player(string name)
+        void add_player(string name, string uuid)
         {
             Button button = new Button();
+            var request = WebRequest.Create("https://crafatar.com/avatars/" + uuid);
+
+            using (var response = request.GetResponse())
+            using (var stream = response.GetResponseStream())
+            {
+                Image image = Bitmap.FromStream(stream);
+                Bitmap bitmap = new Bitmap(image, 15, 15);
+                button.Image = bitmap;
+            }
             button.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             button.FlatAppearance.BorderSize = 0;
             button.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
             button.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             button.FlatStyle = FlatStyle.Flat;
             button.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            button.Image = Properties.Resources.head;
+            //button.Image = Properties.Resources.head;
             button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             button.Name = name;
             button.Size = new System.Drawing.Size(101, 24);
