@@ -78,14 +78,14 @@ namespace ServerGui
                                 ["uuid"] = this.playerUUID
                             };
                             Console.WriteLine(String.Format("Player {0} joined with IP {1} and UUID {2}", player_information["name"], player_information["ip"], player_information["uuid"]));
-                            add_player(player_information["name"], player_information["uuid"]);
+                            Add_Player(player_information["name"], player_information["uuid"]);
                             players_list.Add(player_information["name"], player_information);
                             this.playerUUID = "";
                         } else if (data.Contains("left the game"))
                         {
                             string name = e.Data.Split(' ')[2];
                             players_list.Remove(name);
-                            remove_player(name);
+                            Remove_Player(name);
                         }
                     }
                     else
@@ -98,7 +98,7 @@ namespace ServerGui
             }));
         }
 
-        void add_player(string name, string uuid)
+        void Add_Player(string name, string uuid)
         {
             Button button = new Button();
             var request = WebRequest.Create("https://crafatar.com/avatars/" + uuid);
@@ -116,7 +116,6 @@ namespace ServerGui
             button.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             button.FlatStyle = FlatStyle.Flat;
             button.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //button.Image = Properties.Resources.head;
             button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             button.Name = name;
             button.Size = new System.Drawing.Size(101, 24);
@@ -139,7 +138,7 @@ namespace ServerGui
             this.PlayerFlowPanel.Controls.Add(button);
         }
 
-        void remove_player(string name)
+        void Remove_Player(string name)
         {
             Button button = (Button)this.PlayerFlowPanel.Controls.Find(name, true)[0];
             this.PlayerFlowPanel.Controls.Remove(button);
