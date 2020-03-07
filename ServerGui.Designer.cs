@@ -73,6 +73,14 @@
             this.survivalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creativeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spectatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.PlayersNameLabel = new System.Windows.Forms.Label();
+            this.PlayersIpLabel = new System.Windows.Forms.Label();
+            this.PlayersTimeJoinedLabel = new System.Windows.Forms.Label();
+            this.PlayersOpLabel = new System.Windows.Forms.Label();
+            this.PlayersWhitelistedLabel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tabPage2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.BottomHalfOfConsole.SuspendLayout();
@@ -91,16 +99,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.CPU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RAM)).BeginInit();
             this.PlayersContextMenu.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(10);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(976, 648);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Players";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabControl1
@@ -491,35 +503,35 @@
             this.banToolStripMenuItem,
             this.gamemodeToolStripMenuItem});
             this.PlayersContextMenu.Name = "contextMenuStrip1";
-            this.PlayersContextMenu.Size = new System.Drawing.Size(181, 136);
+            this.PlayersContextMenu.Size = new System.Drawing.Size(137, 114);
             this.PlayersContextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
             // 
             // opToolStripMenuItem
             // 
             this.opToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
             this.opToolStripMenuItem.Name = "opToolStripMenuItem";
-            this.opToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.opToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.opToolStripMenuItem.Text = "Op";
             // 
             // deOpToolStripMenuItem
             // 
             this.deOpToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
             this.deOpToolStripMenuItem.Name = "deOpToolStripMenuItem";
-            this.deOpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deOpToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.deOpToolStripMenuItem.Text = "De-Op";
             // 
             // kickToolStripMenuItem
             // 
             this.kickToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
             this.kickToolStripMenuItem.Name = "kickToolStripMenuItem";
-            this.kickToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kickToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.kickToolStripMenuItem.Text = "Kick";
             // 
             // banToolStripMenuItem
             // 
             this.banToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
             this.banToolStripMenuItem.Name = "banToolStripMenuItem";
-            this.banToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.banToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.banToolStripMenuItem.Text = "Ban";
             // 
             // gamemodeToolStripMenuItem
@@ -530,31 +542,125 @@
             this.spectatorToolStripMenuItem});
             this.gamemodeToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
             this.gamemodeToolStripMenuItem.Name = "gamemodeToolStripMenuItem";
-            this.gamemodeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gamemodeToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.gamemodeToolStripMenuItem.Text = "Gamemode";
             // 
             // survivalToolStripMenuItem
             // 
             this.survivalToolStripMenuItem.Name = "survivalToolStripMenuItem";
-            this.survivalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.survivalToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.survivalToolStripMenuItem.Text = "Survival";
             this.survivalToolStripMenuItem.Click += new System.EventHandler(this.GamemodeMenu_Clicked);
             // 
             // creativeToolStripMenuItem
             // 
             this.creativeToolStripMenuItem.Name = "creativeToolStripMenuItem";
-            this.creativeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.creativeToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.creativeToolStripMenuItem.Text = "Creative";
             this.creativeToolStripMenuItem.Click += new System.EventHandler(this.GamemodeMenu_Clicked);
             // 
             // spectatorToolStripMenuItem
             // 
             this.spectatorToolStripMenuItem.Name = "spectatorToolStripMenuItem";
-            this.spectatorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.spectatorToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.spectatorToolStripMenuItem.Text = "Spectator";
             this.spectatorToolStripMenuItem.Click += new System.EventHandler(this.GamemodeMenu_Clicked);
-
-
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.PlayersNameLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.PlayersIpLabel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.PlayersTimeJoinedLabel, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.PlayersOpLabel, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.PlayersWhitelistedLabel, 3, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(954, 626);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // PlayersNameLabel
+            // 
+            this.PlayersNameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PlayersNameLabel.AutoSize = true;
+            this.PlayersNameLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayersNameLabel.Location = new System.Drawing.Point(72, 6);
+            this.PlayersNameLabel.Name = "PlayersNameLabel";
+            this.PlayersNameLabel.Size = new System.Drawing.Size(46, 19);
+            this.PlayersNameLabel.TabIndex = 0;
+            this.PlayersNameLabel.Text = "Name";
+            this.PlayersNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PlayersIpLabel
+            // 
+            this.PlayersIpLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PlayersIpLabel.AutoSize = true;
+            this.PlayersIpLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayersIpLabel.Location = new System.Drawing.Point(273, 6);
+            this.PlayersIpLabel.Name = "PlayersIpLabel";
+            this.PlayersIpLabel.Size = new System.Drawing.Size(23, 19);
+            this.PlayersIpLabel.TabIndex = 1;
+            this.PlayersIpLabel.Text = "IP";
+            this.PlayersIpLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PlayersTimeJoinedLabel
+            // 
+            this.PlayersTimeJoinedLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PlayersTimeJoinedLabel.AutoSize = true;
+            this.PlayersTimeJoinedLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayersTimeJoinedLabel.Location = new System.Drawing.Point(434, 6);
+            this.PlayersTimeJoinedLabel.Name = "PlayersTimeJoinedLabel";
+            this.PlayersTimeJoinedLabel.Size = new System.Drawing.Size(81, 19);
+            this.PlayersTimeJoinedLabel.TabIndex = 2;
+            this.PlayersTimeJoinedLabel.Text = "Time Joined";
+            this.PlayersTimeJoinedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PlayersOpLabel
+            // 
+            this.PlayersOpLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PlayersOpLabel.AutoSize = true;
+            this.PlayersOpLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayersOpLabel.Location = new System.Drawing.Point(842, 6);
+            this.PlayersOpLabel.Name = "PlayersOpLabel";
+            this.PlayersOpLabel.Size = new System.Drawing.Size(30, 19);
+            this.PlayersOpLabel.TabIndex = 3;
+            this.PlayersOpLabel.Text = "OP";
+            this.PlayersOpLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PlayersWhitelistedLabel
+            // 
+            this.PlayersWhitelistedLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PlayersWhitelistedLabel.AutoSize = true;
+            this.PlayersWhitelistedLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayersWhitelistedLabel.Location = new System.Drawing.Point(627, 6);
+            this.PlayersWhitelistedLabel.Name = "PlayersWhitelistedLabel";
+            this.PlayersWhitelistedLabel.Size = new System.Drawing.Size(76, 19);
+            this.PlayersWhitelistedLabel.TabIndex = 4;
+            this.PlayersWhitelistedLabel.Text = "Whitelisted";
+            this.PlayersWhitelistedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Location = new System.Drawing.Point(8, 6);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(962, 634);
+            this.panel1.TabIndex = 1;
             // 
             // ServerGui
             // 
@@ -567,6 +673,7 @@
             this.Text = "Server Gui - iBlitzkriegi";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServerGui_FormClosing);
             this.Load += new System.EventHandler(this.ServerGui_Load);
+            this.tabPage2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.BottomHalfOfConsole.ResumeLayout(false);
@@ -590,6 +697,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.CPU)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RAM)).EndInit();
             this.PlayersContextMenu.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -639,6 +749,13 @@
         private System.Windows.Forms.ToolStripMenuItem survivalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem creativeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem spectatorToolStripMenuItem;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label PlayersNameLabel;
+        private System.Windows.Forms.Label PlayersIpLabel;
+        private System.Windows.Forms.Label PlayersTimeJoinedLabel;
+        private System.Windows.Forms.Label PlayersOpLabel;
+        private System.Windows.Forms.Label PlayersWhitelistedLabel;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
