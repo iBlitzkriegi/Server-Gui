@@ -42,10 +42,13 @@ namespace ServerGui
 
         public bool PlayerIsWhitelisted(string name)
         {
-            if (this.whitelistedPlayers.Count == 0)
+            if (this.whitelistedPlayers == null)
             {
                 return false;
             }
+
+            string jsonData = File.ReadAllText(workingDirectory + "\\whitelist.json");
+            this.whitelistedPlayers = JsonConvert.DeserializeObject<List<WhitelistedPlayer>>(jsonData);
 
             foreach (WhitelistedPlayer whitelistedPlayer in this.whitelistedPlayers)
             {
