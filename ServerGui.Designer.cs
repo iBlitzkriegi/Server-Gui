@@ -113,12 +113,15 @@
             // 
             // playersGridView
             // 
+            this.playersGridView.AllowUserToAddRows = false;
+            this.playersGridView.AllowUserToDeleteRows = false;
             this.playersGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.playersGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.playersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.playersGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.playersGridView.Location = new System.Drawing.Point(3, 3);
             this.playersGridView.Name = "playersGridView";
+            this.playersGridView.ReadOnly = true;
             this.playersGridView.Size = new System.Drawing.Size(970, 642);
             this.playersGridView.TabIndex = 0;
             // 

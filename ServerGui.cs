@@ -21,6 +21,7 @@ namespace ServerGui
         string playerName;
         string playerUUID;
         public int executedCommandsIndex;
+        DataTable playersDataGridData = new DataTable();
 
         public ServerGui()
         {
@@ -33,25 +34,6 @@ namespace ServerGui
                     ConsoleTextBox.ScrollToCaret();
                 }
             };
-            DataTable dt = new DataTable();
-            dt.Clear();
-            dt.Columns.Add("Name");
-            dt.Columns.Add("IP");
-            dt.Columns.Add("Time Joined");
-            dt.Columns.Add("Whitelisted");
-            dt.Columns.Add("OP");
-            //DataRow _ravi = dt.NewRow();
-            //   _ravi["Name"] = "ravi";
-            //   _ravi["Marks"] = "500";
-            // dt.Rows.Add(_ravi);
-            DataRow player = dt.NewRow();
-            player["Name"] = "iBlitzkriegi";
-            player["IP"] = "127.0.0.1:52675";
-            player["Time Joined"] = "3:27 PM";
-            player["Whitelisted"] = "False";
-            player["OP"] = "True";
-            dt.Rows.Add(player);
-            playersGridView.DataSource = dt;
 
         }
 
@@ -99,7 +81,7 @@ namespace ServerGui
                                 ["uuid"] = this.playerUUID
                             };
                             Console.WriteLine(String.Format("Player {0} joined with IP {1} and UUID {2}", player_information["name"], player_information["ip"], player_information["uuid"]));
-                            Add_Player(player_information["name"], player_information["uuid"]);
+                            Add_Player(player_information);
                             players_list.Add(player_information["name"], player_information);
                             this.playerUUID = "";
                         }
@@ -120,10 +102,10 @@ namespace ServerGui
             }));
         }
 
-        void Add_Player(string name, string uuid)
+        void Add_Player(Dictionary<object, string> player_information)
         {
             Button button = new Button();
-            var request = WebRequest.Create("https://crafatar.com/avatars/" + uuid);
+            var request = WebRequest.Create("https://crafatar.com/avatars/" + player_information["uuid"]);
 
             using (var response = request.GetResponse())
             using (var stream = response.GetResponseStream())
@@ -139,11 +121,11 @@ namespace ServerGui
             button.FlatStyle = FlatStyle.Flat;
             button.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            button.Name = name;
+            button.Name = player_information["name"];
             button.Size = new System.Drawing.Size(101, 24);
             button.Margin = new Padding(5, 0, 0, 0);
             button.TabIndex = 0;
-            button.Text = name;
+            button.Text = player_information["name"];
             button.TextImageRelation = TextImageRelation.ImageBeforeText;
             button.UseVisualStyleBackColor = true;
             button.MouseDown += (clickSender, clickEvent) =>
