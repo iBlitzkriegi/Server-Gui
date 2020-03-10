@@ -168,6 +168,14 @@ namespace ServerGui
         {
             Button button = (Button)this.PlayerFlowPanel.Controls.Find(name, true)[0];
             this.PlayerFlowPanel.Controls.Remove(button);
+
+            foreach (DataGridViewRow row in this.PlayersGridView.Rows) {
+                if (row.Cells["Name"].Value.ToString().Equals(name))
+                {
+                    this.PlayersGridView.Rows.Remove(row);
+                }
+            }
+            
         }
 
         private void ExecuteCommand(String command)
