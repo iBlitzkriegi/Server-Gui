@@ -129,6 +129,19 @@ namespace ServerGui
                                 }
                             }
 
+                        } else if (data.Contains("from the whitelist") || data.Contains("to the whitelist"))
+                        {
+                            string[] line = e.Data.Split(' ');
+                            string name = line[3];
+                            foreach (DataGridViewRow row in this.PlayersGridView.Rows)
+                            {
+                                if (row.Cells["Name"].Value.ToString().Equals(name))
+                                {
+                                    row.Cells["Whitelisted"].Value = data.Contains("from the whitelist") ? "False" : "True";
+                                    break;
+                                }
+                            }
+
                         }
                     }
                     else
