@@ -84,7 +84,8 @@ namespace ServerGui
                             {
                                 ["name"] = line[2].Split('[')[0],
                                 ["ip"] = line[2].Split('/')[1].Replace("]", string.Empty),
-                                ["uuid"] = this.playerUUID
+                                ["uuid"] = this.playerUUID,
+                                ["time-joined"] = DateTime.Now.ToString("h:mm tt")
                             };
                             Console.WriteLine(String.Format("Player {0} joined with IP {1} and UUID {2}", player_information["name"], player_information["ip"], player_information["uuid"]));
                             Add_Player(player_information);
@@ -156,7 +157,7 @@ namespace ServerGui
             DataRow player = playersDataGridData.NewRow();
             player["Name"] = player_information["name"];
             player["IP"] = player_information["ip"];
-            player["Time Joined"] = "3:27 PM";
+            player["Time Joined"] = player_information["time-joined"];
             player["Whitelisted"] = "False";
             player["OP"] = "True";
             playersDataGridData.Rows.Add(player);
