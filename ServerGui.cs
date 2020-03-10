@@ -1,4 +1,6 @@
 ﻿using Microsoft.VisualBasic.Devices;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -46,6 +48,10 @@ namespace ServerGui
             playersDataGridData.Columns.Add("Whitelisted");
             playersDataGridData.Columns.Add("OP");
             PlayersGridView.DataSource = playersDataGridData;
+            
+            //Will need to be modified when server options are implemented
+            string jsonData = File.ReadAllText(workingDirectory + "\\whitelist.json");
+            List<WhitelistedPlayer> output = JsonConvert.DeserializeObject<List<WhitelistedPlayer>>(jsonData);
 
         }
 
