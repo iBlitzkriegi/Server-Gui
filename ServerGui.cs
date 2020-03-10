@@ -168,7 +168,7 @@ namespace ServerGui
                     Bitmap bitmap = new Bitmap(image, 15, 15);
                     button.Image = bitmap;
                 }
-            } catch (Exception e)
+            } catch (Exception)
             {
                 button.Image = Properties.Resources.head;
             }
