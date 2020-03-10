@@ -13,6 +13,7 @@ namespace ServerGui
     {
 
         private string workingDirectory;
+        private bool fileNotFound = false;
 
         public List<WhitelistedPlayer> whitelistedPlayers = new List<WhitelistedPlayer>();
 
@@ -20,10 +21,23 @@ namespace ServerGui
         {
             this.workingDirectory = workingDirectory;
 
+            this.whitelistedPlayers = File.Exists(workingDirectory + "\\whitelist.json") ? JsonConvert.DeserializeObject<List<WhitelistedPlayer>>(File.ReadAllText(workingDirectory + "\\whitelist.json")) : null;
+            if (this.whitelistedPlayers == null)
+            {
+                this.fileNotFound = true;
+            }
+        }
+
+        public bool FileNotFound()
+        {
+            return this.fileNotFound;
+        }
+
+        public void RetryFileParsing()
+        {
             string jsonData;
             jsonData = File.ReadAllText(workingDirectory + "\\whitelist.json");
-            this.whitelistedPlayers = JsonConvert.DeserializeObject<List<WhitelistedPlayer>>(jsonData);
-            Console.WriteLine(this.whitelistedPlayers[0].name);
+            this.whitelistedPlayers = File.Exists(workingDirectory + "\\whitelist.json") ? JsonConvert.DeserializeObject<List<WhitelistedPlayer>>(jsonData) : null;
         }
 
         public bool PlayerIsWhitelisted(string name)

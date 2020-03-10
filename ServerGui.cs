@@ -84,6 +84,13 @@ namespace ServerGui
                             this.playerUUID = line[line.Length - 1];
                         }
                         string data = e.Data;
+                        if (data.Contains("Done (") && data.Contains("type \"help\" or \"?\""))
+                        {
+                            if (this.playerManager.FileNotFound())
+                            {
+                                this.playerManager.RetryFileParsing();
+                            }
+                        }
                         if (data.Contains("logged in"))
                         {
                             string[] line = e.Data.Split(' ');
