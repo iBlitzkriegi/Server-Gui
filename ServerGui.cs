@@ -116,6 +116,20 @@ namespace ServerGui
                             players_list.Remove(name);
                             Remove_Player(name);
                         }
+                        if (data.Contains("Opped") || data.Contains("opped"))
+                        {
+                            string[] line = e.Data.Split(' ');
+                            string name = line[line.Length - 1];
+                            foreach (DataGridViewRow row in this.PlayersGridView.Rows)
+                            {
+                                if (row.Cells["Name"].Value.ToString().Equals(name))
+                                {
+                                    row.Cells["OP"].Value = data.Contains("Opped") ? "True" : "False";
+                                    break;
+                                }
+                            }
+
+                        }
                     }
                     else
                     {
