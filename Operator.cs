@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ServerGui
 {
-    class Operators
+    class Operator
     {
         public string uuid { get; set; }
         public string name { get; set; }

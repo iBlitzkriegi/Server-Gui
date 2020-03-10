@@ -102,7 +102,8 @@ namespace ServerGui
                                 ["ip"] = line[2].Split('/')[1].Replace("]", string.Empty),
                                 ["uuid"] = this.playerUUID,
                                 ["time-joined"] = DateTime.Now.ToString("h:mm tt"),
-                                ["whitelisted"] = this.playerManager.PlayerIsWhitelisted(name).ToString()
+                                ["whitelisted"] = this.playerManager.PlayerIsWhitelisted(name).ToString(),
+                                ["op"] = this.playerManager.PlayerIsOp(name).ToString()
                             };
                             Console.WriteLine(String.Format("Player {0} joined with IP {1} and UUID {2}", player_information["name"], player_information["ip"], player_information["uuid"]));
                             Add_Player(player_information);
@@ -176,7 +177,7 @@ namespace ServerGui
             player["IP"] = player_information["ip"];
             player["Time Joined"] = player_information["time-joined"];
             player["Whitelisted"] = player_information["whitelisted"];
-            player["OP"] = "True";
+            player["OP"] = player_information["op"];
             playersDataGridData.Rows.Add(player);
             PlayersGridView.DataSource = playersDataGridData;
         }

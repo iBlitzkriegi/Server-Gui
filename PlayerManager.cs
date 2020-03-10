@@ -16,7 +16,7 @@ namespace ServerGui
         private bool fileNotFound = false;
 
         public List<WhitelistedPlayer> WhitelistedPlayers = new List<WhitelistedPlayer>();
-        public List<Operators> Operators = new List<Operators>();
+        public List<Operator> Operators = new List<Operator>();
 
         public PlayerManager(string workingDirectory)
         {
@@ -27,7 +27,7 @@ namespace ServerGui
             this.WhitelistedPlayers = File.Exists(filePath) ? JsonConvert.DeserializeObject<List<WhitelistedPlayer>>(File.ReadAllText(filePath)) : null;
 
             filePath = workingDirectory + "\\ops.json";
-            this.Operators = File.Exists(filePath) ? JsonConvert.DeserializeObject<List<Operators>>(File.ReadAllText(filePath)) : null;
+            this.Operators = File.Exists(filePath) ? JsonConvert.DeserializeObject<List<Operator>>(File.ReadAllText(filePath)) : null;
 
             if (this.WhitelistedPlayers == null || this.Operators == null)
             {
@@ -48,7 +48,7 @@ namespace ServerGui
             this.WhitelistedPlayers = File.Exists(filePath) ? JsonConvert.DeserializeObject<List<WhitelistedPlayer>>(File.ReadAllText(filePath)) : null;
 
             filePath = workingDirectory + "\\ops.json";
-            this.Operators = File.Exists(filePath) ? JsonConvert.DeserializeObject<List<Operators>>(File.ReadAllText(filePath)) : null;
+            this.Operators = File.Exists(filePath) ? JsonConvert.DeserializeObject<List<Operator>>(File.ReadAllText(filePath)) : null;
         }
 
         public bool PlayerIsWhitelisted(string name)
@@ -64,6 +64,27 @@ namespace ServerGui
             foreach (WhitelistedPlayer whitelistedPlayer in this.WhitelistedPlayers)
             {
                 if (whitelistedPlayer.name.Equals(name))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool PlayerIsOp(string name)
+        {
+            if (this.Operators == null)
+            {
+                return false;
+            }
+
+            string jsonData = File.ReadAllText(workingDirectory + "\\ops.json");
+            this.Operators = JsonConvert.DeserializeObject<List<Operator>>(jsonData);
+
+            foreach (Operator op in this.Operators)
+            {
+                if (op.name.Equals(name))
                 {
                     return true;
                 }
