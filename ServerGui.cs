@@ -1,11 +1,11 @@
 ﻿using Microsoft.VisualBasic.Devices;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Net;
 using System.Windows.Forms;
+using System.Data;
 
 namespace ServerGui
 {
@@ -113,13 +113,18 @@ namespace ServerGui
             Button button = new Button();
             var request = WebRequest.Create("https://crafatar.com/avatars/" + player_information["uuid"]);
 
-
-            using (var response = request.GetResponse())
-            using (var stream = response.GetResponseStream())
+            try
             {
-                Image image = Bitmap.FromStream(stream);
-                Bitmap bitmap = new Bitmap(image, 15, 15);
-                button.Image = bitmap;
+                using (var response = request.GetResponse())
+                using (var stream = response.GetResponseStream())
+                {
+                    Image image = Bitmap.FromStream(stream);
+                    Bitmap bitmap = new Bitmap(image, 15, 15);
+                    button.Image = bitmap;
+                }
+            } catch (Exception e)
+            {
+                button.Image = Properties.Resources.head;
             }
             button.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             button.FlatAppearance.BorderSize = 0;
