@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.playersGridView = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.BottomHalfOfConsole = new System.Windows.Forms.FlowLayoutPanel();
@@ -61,6 +62,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.PlayerFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.ConsoleTextBox = new System.Windows.Forms.RichTextBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.ProgressBarTimer = new System.Windows.Forms.Timer(this.components);
             this.CPU = new System.Diagnostics.PerformanceCounter();
             this.RAM = new System.Diagnostics.PerformanceCounter();
@@ -73,14 +76,8 @@
             this.survivalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creativeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spectatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.PlayersNameLabel = new System.Windows.Forms.Label();
-            this.PlayersIpLabel = new System.Windows.Forms.Label();
-            this.PlayersTimeJoinedLabel = new System.Windows.Forms.Label();
-            this.PlayersOpLabel = new System.Windows.Forms.Label();
-            this.PlayersWhitelistedLabel = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.playersGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.BottomHalfOfConsole.SuspendLayout();
@@ -96,16 +93,15 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CPU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RAM)).BeginInit();
             this.PlayersContextMenu.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.panel1);
+            this.tabPage2.Controls.Add(this.playersGridView);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(10);
             this.tabPage2.Name = "tabPage2";
@@ -115,10 +111,22 @@
             this.tabPage2.Text = "Players";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // playersGridView
+            // 
+            this.playersGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.playersGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.playersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.playersGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playersGridView.Location = new System.Drawing.Point(3, 3);
+            this.playersGridView.Name = "playersGridView";
+            this.playersGridView.Size = new System.Drawing.Size(970, 642);
+            this.playersGridView.TabIndex = 0;
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -478,6 +486,27 @@
             this.ConsoleTextBox.TabIndex = 1;
             this.ConsoleTextBox.Text = "";
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(976, 648);
+            this.tabPage1.TabIndex = 4;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(203, 232);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ProgressBarTimer
             // 
             this.ProgressBarTimer.Interval = 1000;
@@ -566,102 +595,6 @@
             this.spectatorToolStripMenuItem.Text = "Spectator";
             this.spectatorToolStripMenuItem.Click += new System.EventHandler(this.GamemodeMenu_Clicked);
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.PlayersNameLabel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.PlayersIpLabel, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.PlayersTimeJoinedLabel, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.PlayersOpLabel, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.PlayersWhitelistedLabel, 3, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(954, 626);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // PlayersNameLabel
-            // 
-            this.PlayersNameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PlayersNameLabel.AutoSize = true;
-            this.PlayersNameLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlayersNameLabel.Location = new System.Drawing.Point(72, 6);
-            this.PlayersNameLabel.Name = "PlayersNameLabel";
-            this.PlayersNameLabel.Size = new System.Drawing.Size(46, 19);
-            this.PlayersNameLabel.TabIndex = 0;
-            this.PlayersNameLabel.Text = "Name";
-            this.PlayersNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PlayersIpLabel
-            // 
-            this.PlayersIpLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PlayersIpLabel.AutoSize = true;
-            this.PlayersIpLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlayersIpLabel.Location = new System.Drawing.Point(273, 6);
-            this.PlayersIpLabel.Name = "PlayersIpLabel";
-            this.PlayersIpLabel.Size = new System.Drawing.Size(23, 19);
-            this.PlayersIpLabel.TabIndex = 1;
-            this.PlayersIpLabel.Text = "IP";
-            this.PlayersIpLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PlayersTimeJoinedLabel
-            // 
-            this.PlayersTimeJoinedLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PlayersTimeJoinedLabel.AutoSize = true;
-            this.PlayersTimeJoinedLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlayersTimeJoinedLabel.Location = new System.Drawing.Point(434, 6);
-            this.PlayersTimeJoinedLabel.Name = "PlayersTimeJoinedLabel";
-            this.PlayersTimeJoinedLabel.Size = new System.Drawing.Size(81, 19);
-            this.PlayersTimeJoinedLabel.TabIndex = 2;
-            this.PlayersTimeJoinedLabel.Text = "Time Joined";
-            this.PlayersTimeJoinedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PlayersOpLabel
-            // 
-            this.PlayersOpLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PlayersOpLabel.AutoSize = true;
-            this.PlayersOpLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlayersOpLabel.Location = new System.Drawing.Point(842, 6);
-            this.PlayersOpLabel.Name = "PlayersOpLabel";
-            this.PlayersOpLabel.Size = new System.Drawing.Size(30, 19);
-            this.PlayersOpLabel.TabIndex = 3;
-            this.PlayersOpLabel.Text = "OP";
-            this.PlayersOpLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PlayersWhitelistedLabel
-            // 
-            this.PlayersWhitelistedLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PlayersWhitelistedLabel.AutoSize = true;
-            this.PlayersWhitelistedLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlayersWhitelistedLabel.Location = new System.Drawing.Point(627, 6);
-            this.PlayersWhitelistedLabel.Name = "PlayersWhitelistedLabel";
-            this.PlayersWhitelistedLabel.Size = new System.Drawing.Size(76, 19);
-            this.PlayersWhitelistedLabel.TabIndex = 4;
-            this.PlayersWhitelistedLabel.Text = "Whitelisted";
-            this.PlayersWhitelistedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Location = new System.Drawing.Point(8, 6);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(962, 634);
-            this.panel1.TabIndex = 1;
-            // 
             // ServerGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -674,6 +607,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServerGui_FormClosing);
             this.Load += new System.EventHandler(this.ServerGui_Load);
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.playersGridView)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.BottomHalfOfConsole.ResumeLayout(false);
@@ -694,12 +628,10 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CPU)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RAM)).EndInit();
             this.PlayersContextMenu.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -749,13 +681,9 @@
         private System.Windows.Forms.ToolStripMenuItem survivalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem creativeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem spectatorToolStripMenuItem;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label PlayersNameLabel;
-        private System.Windows.Forms.Label PlayersIpLabel;
-        private System.Windows.Forms.Label PlayersTimeJoinedLabel;
-        private System.Windows.Forms.Label PlayersOpLabel;
-        private System.Windows.Forms.Label PlayersWhitelistedLabel;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView playersGridView;
     }
 }
 

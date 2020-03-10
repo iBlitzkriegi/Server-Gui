@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Devices;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Windows.Forms;
-using Microsoft.VisualBasic.Devices;
-using System.Net;
 using System.Drawing;
+using System.Net;
+using System.Windows.Forms;
+using System.Data;
 
 namespace ServerGui
 {
@@ -32,6 +33,25 @@ namespace ServerGui
                     ConsoleTextBox.ScrollToCaret();
                 }
             };
+            DataTable dt = new DataTable();
+            dt.Clear();
+            dt.Columns.Add("Name");
+            dt.Columns.Add("IP");
+            dt.Columns.Add("Time Joined");
+            dt.Columns.Add("Whitelisted");
+            dt.Columns.Add("OP");
+            //DataRow _ravi = dt.NewRow();
+            //   _ravi["Name"] = "ravi";
+            //   _ravi["Marks"] = "500";
+            // dt.Rows.Add(_ravi);
+            DataRow player = dt.NewRow();
+            player["Name"] = "iBlitzkriegi";
+            player["IP"] = "127.0.0.1:52675";
+            player["Time Joined"] = "3:27 PM";
+            player["Whitelisted"] = "False";
+            player["OP"] = "True";
+            dt.Rows.Add(player);
+            playersGridView.DataSource = dt;
 
         }
 
@@ -42,7 +62,8 @@ namespace ServerGui
                 if (SayCheckBox.Checked)
                 {
                     this.ExecuteServerCommand("say " + this.CommandTextBox.Text);
-                } else
+                }
+                else
                 {
                     this.ExecuteCommand(this.CommandTextBox.Text);
                 }
@@ -81,7 +102,8 @@ namespace ServerGui
                             Add_Player(player_information["name"], player_information["uuid"]);
                             players_list.Add(player_information["name"], player_information);
                             this.playerUUID = "";
-                        } else if (data.Contains("left the game"))
+                        }
+                        else if (data.Contains("left the game"))
                         {
                             string name = e.Data.Split(' ')[2];
                             players_list.Remove(name);
@@ -264,7 +286,10 @@ namespace ServerGui
             if (this.compiler != null)
             {
                 this.ExecuteServerCommand("stop");
-                this.compiler.Kill();
+                if (!this.compiler.HasExited)
+                {
+                    this.compiler.Kill();
+                }
             }
         }
 
@@ -354,6 +379,12 @@ namespace ServerGui
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
             this.ExecuteServerCommand(String.Format("gamemode {0} {1}", item.Text.ToLower(), playerName));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ServerGui serverGui = new ServerGui();
+            serverGui.Show();
         }
     }
 }
