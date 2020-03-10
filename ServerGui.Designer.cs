@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.playersGridView = new System.Windows.Forms.DataGridView();
+            this.PlayersGridView = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.BottomHalfOfConsole = new System.Windows.Forms.FlowLayoutPanel();
@@ -77,7 +77,7 @@
             this.creativeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spectatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.playersGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayersGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.BottomHalfOfConsole.SuspendLayout();
@@ -101,7 +101,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.playersGridView);
+            this.tabPage2.Controls.Add(this.PlayersGridView);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(10);
             this.tabPage2.Name = "tabPage2";
@@ -111,19 +111,19 @@
             this.tabPage2.Text = "Players";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // playersGridView
+            // PlayersGridView
             // 
-            this.playersGridView.AllowUserToAddRows = false;
-            this.playersGridView.AllowUserToDeleteRows = false;
-            this.playersGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.playersGridView.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.playersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.playersGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.playersGridView.Location = new System.Drawing.Point(3, 3);
-            this.playersGridView.Name = "playersGridView";
-            this.playersGridView.ReadOnly = true;
-            this.playersGridView.Size = new System.Drawing.Size(970, 642);
-            this.playersGridView.TabIndex = 0;
+            this.PlayersGridView.AllowUserToAddRows = false;
+            this.PlayersGridView.AllowUserToDeleteRows = false;
+            this.PlayersGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.PlayersGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.PlayersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PlayersGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PlayersGridView.Location = new System.Drawing.Point(3, 3);
+            this.PlayersGridView.Name = "PlayersGridView";
+            this.PlayersGridView.ReadOnly = true;
+            this.PlayersGridView.Size = new System.Drawing.Size(970, 642);
+            this.PlayersGridView.TabIndex = 0;
             // 
             // tabControl1
             // 
@@ -610,7 +610,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServerGui_FormClosing);
             this.Load += new System.EventHandler(this.ServerGui_Load);
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.playersGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayersGridView)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.BottomHalfOfConsole.ResumeLayout(false);
@@ -686,7 +686,7 @@
         private System.Windows.Forms.ToolStripMenuItem spectatorToolStripMenuItem;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView playersGridView;
+        private System.Windows.Forms.DataGridView PlayersGridView;
     }
 }
 

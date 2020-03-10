@@ -39,7 +39,7 @@ namespace ServerGui
             playersDataGridData.Columns.Add("Time Joined");
             playersDataGridData.Columns.Add("Whitelisted");
             playersDataGridData.Columns.Add("OP");
-            playersGridView.DataSource = playersDataGridData;
+            PlayersGridView.DataSource = playersDataGridData;
 
         }
 
@@ -161,7 +161,7 @@ namespace ServerGui
             player["Whitelisted"] = "False";
             player["OP"] = "True";
             playersDataGridData.Rows.Add(player);
-            playersGridView.DataSource = playersDataGridData;
+            PlayersGridView.DataSource = playersDataGridData;
         }
 
         void Remove_Player(string name)
