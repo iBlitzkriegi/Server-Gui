@@ -15,14 +15,21 @@ namespace ServerGui
         private string workingDirectory;
         private bool fileNotFound = false;
 
-        public List<WhitelistedPlayer> whitelistedPlayers = new List<WhitelistedPlayer>();
+        public List<WhitelistedPlayer> WhitelistedPlayers = new List<WhitelistedPlayer>();
+        public List<Operators> Operators = new List<Operators>();
 
         public PlayerManager(string workingDirectory)
         {
             this.workingDirectory = workingDirectory;
+            string filePath;
 
-            this.whitelistedPlayers = File.Exists(workingDirectory + "\\whitelist.json") ? JsonConvert.DeserializeObject<List<WhitelistedPlayer>>(File.ReadAllText(workingDirectory + "\\whitelist.json")) : null;
-            if (this.whitelistedPlayers == null)
+            filePath = workingDirectory + "\\whitelist.json";
+            this.WhitelistedPlayers = File.Exists(filePath) ? JsonConvert.DeserializeObject<List<WhitelistedPlayer>>(File.ReadAllText(filePath)) : null;
+
+            filePath = workingDirectory + "\\ops.json";
+            this.Operators = File.Exists(filePath) ? JsonConvert.DeserializeObject<List<Operators>>(File.ReadAllText(filePath)) : null;
+
+            if (this.WhitelistedPlayers == null || this.Operators == null)
             {
                 this.fileNotFound = true;
             }
@@ -35,22 +42,26 @@ namespace ServerGui
 
         public void RetryFileParsing()
         {
-            string jsonData;
-            jsonData = File.ReadAllText(workingDirectory + "\\whitelist.json");
-            this.whitelistedPlayers = File.Exists(workingDirectory + "\\whitelist.json") ? JsonConvert.DeserializeObject<List<WhitelistedPlayer>>(jsonData) : null;
+            string filePath;
+
+            filePath = workingDirectory + "\\whitelist.json";
+            this.WhitelistedPlayers = File.Exists(filePath) ? JsonConvert.DeserializeObject<List<WhitelistedPlayer>>(File.ReadAllText(filePath)) : null;
+
+            filePath = workingDirectory + "\\ops.json";
+            this.Operators = File.Exists(filePath) ? JsonConvert.DeserializeObject<List<Operators>>(File.ReadAllText(filePath)) : null;
         }
 
         public bool PlayerIsWhitelisted(string name)
         {
-            if (this.whitelistedPlayers == null)
+            if (this.WhitelistedPlayers == null)
             {
                 return false;
             }
 
             string jsonData = File.ReadAllText(workingDirectory + "\\whitelist.json");
-            this.whitelistedPlayers = JsonConvert.DeserializeObject<List<WhitelistedPlayer>>(jsonData);
+            this.WhitelistedPlayers = JsonConvert.DeserializeObject<List<WhitelistedPlayer>>(jsonData);
 
-            foreach (WhitelistedPlayer whitelistedPlayer in this.whitelistedPlayers)
+            foreach (WhitelistedPlayer whitelistedPlayer in this.WhitelistedPlayers)
             {
                 if (whitelistedPlayer.name.Equals(name))
                 {
