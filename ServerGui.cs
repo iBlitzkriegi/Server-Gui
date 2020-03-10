@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Net;
 using System.Windows.Forms;
 using System.Data;
+using System.IO;
 
 namespace ServerGui
 {
@@ -22,6 +23,11 @@ namespace ServerGui
         string playerUUID;
         public int executedCommandsIndex;
         DataTable playersDataGridData = new DataTable();
+
+        //TEMPORARY
+        string jarPath = "-jar C:\\Users\\matthew\\Desktop\\Minecraft\\Vixio\\paperclip.jar nogui";
+        string workingDirectory = "C:\\Users\\matthew\\Desktop\\Minecraft\\Vixio";
+
 
         public ServerGui()
         {
@@ -193,8 +199,8 @@ namespace ServerGui
         {
             Process compiler = new Process();
             compiler.StartInfo.FileName = "java";
-            compiler.StartInfo.Arguments = "-jar C:\\Users\\matthew\\Desktop\\Minecraft\\Vixio\\paperclip.jar nogui";
-            compiler.StartInfo.WorkingDirectory = "C:\\Users\\matthew\\Desktop\\Minecraft\\Vixio";
+            compiler.StartInfo.Arguments = String.Format("-jar {0} nogui", jarPath);
+            compiler.StartInfo.WorkingDirectory = workingDirectory;
 
             compiler.StartInfo.UseShellExecute = false;
             compiler.StartInfo.CreateNoWindow = true;
