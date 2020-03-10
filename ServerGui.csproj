@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Operator.cs" />
+    <Compile Include="util\Operator.cs" />
     <Compile Include="PlayerManager.cs" />
     <Compile Include="ServerGui.cs">
       <SubType>Form</SubType>
@@ -60,7 +60,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WhitelistedPlayers.cs" />
+    <Compile Include="util\WhitelistedPlayers.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
