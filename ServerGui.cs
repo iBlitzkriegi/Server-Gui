@@ -1,6 +1,4 @@
 ﻿using Microsoft.VisualBasic.Devices;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,7 +6,6 @@ using System.Drawing;
 using System.Net;
 using System.Windows.Forms;
 using System.Data;
-using System.IO;
 
 namespace ServerGui
 {
@@ -19,6 +16,7 @@ namespace ServerGui
         Process compiler = null;
         List<String> executedCommandsList = new List<String>();
         Dictionary<object, Dictionary<object, string>> players_list = new Dictionary<object, Dictionary<object, string>>();
+        PlayerManager playerManager;
 
         int maxSystemMemory;
         string playerName;
@@ -48,10 +46,7 @@ namespace ServerGui
             playersDataGridData.Columns.Add("Whitelisted");
             playersDataGridData.Columns.Add("OP");
             PlayersGridView.DataSource = playersDataGridData;
-            
-            //Will need to be modified when server options are implemented
-            string jsonData = File.ReadAllText(workingDirectory + "\\whitelist.json");
-            List<WhitelistedPlayer> output = JsonConvert.DeserializeObject<List<WhitelistedPlayer>>(jsonData);
+            this.playerManager = new PlayerManager(this.workingDirectory);
 
         }
 
@@ -92,12 +87,15 @@ namespace ServerGui
                         if (data.Contains("logged in"))
                         {
                             string[] line = e.Data.Split(' ');
+                            string name = line[2].Split('[')[0];
+                            Console.WriteLine(name);
                             Dictionary<object, string> player_information = new Dictionary<object, string>
                             {
-                                ["name"] = line[2].Split('[')[0],
+                                ["name"] = name,
                                 ["ip"] = line[2].Split('/')[1].Replace("]", string.Empty),
                                 ["uuid"] = this.playerUUID,
-                                ["time-joined"] = DateTime.Now.ToString("h:mm tt")
+                                ["time-joined"] = DateTime.Now.ToString("h:mm tt"),
+                                ["whitelisted"] = this.playerManager.PlayerIsWhitelisted(name).ToString()
                             };
                             Console.WriteLine(String.Format("Player {0} joined with IP {1} and UUID {2}", player_information["name"], player_information["ip"], player_information["uuid"]));
                             Add_Player(player_information);
@@ -170,7 +168,7 @@ namespace ServerGui
             player["Name"] = player_information["name"];
             player["IP"] = player_information["ip"];
             player["Time Joined"] = player_information["time-joined"];
-            player["Whitelisted"] = "False";
+            player["Whitelisted"] = player_information["whitelisted"];
             player["OP"] = "True";
             playersDataGridData.Rows.Add(player);
             PlayersGridView.DataSource = playersDataGridData;
