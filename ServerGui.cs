@@ -1,11 +1,11 @@
 ﻿using Microsoft.VisualBasic.Devices;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Net;
 using System.Windows.Forms;
-using System.Data;
 
 namespace ServerGui
 {
@@ -34,6 +34,12 @@ namespace ServerGui
                     ConsoleTextBox.ScrollToCaret();
                 }
             };
+            playersDataGridData.Columns.Add("Name");
+            playersDataGridData.Columns.Add("IP");
+            playersDataGridData.Columns.Add("Time Joined");
+            playersDataGridData.Columns.Add("Whitelisted");
+            playersDataGridData.Columns.Add("OP");
+            playersGridView.DataSource = playersDataGridData;
 
         }
 
@@ -107,6 +113,7 @@ namespace ServerGui
             Button button = new Button();
             var request = WebRequest.Create("https://crafatar.com/avatars/" + player_information["uuid"]);
 
+
             using (var response = request.GetResponse())
             using (var stream = response.GetResponseStream())
             {
@@ -140,6 +147,15 @@ namespace ServerGui
             };
 
             this.PlayerFlowPanel.Controls.Add(button);
+
+            DataRow player = playersDataGridData.NewRow();
+            player["Name"] = player_information["name"];
+            player["IP"] = player_information["ip"];
+            player["Time Joined"] = "3:27 PM";
+            player["Whitelisted"] = "False";
+            player["OP"] = "True";
+            playersDataGridData.Rows.Add(player);
+            playersGridView.DataSource = playersDataGridData;
         }
 
         void Remove_Player(string name)
