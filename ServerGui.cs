@@ -438,11 +438,6 @@ namespace ServerGui
             this.ExecuteServerCommand(String.Format("gamemode {0} {1}", item.Text.ToLower(), playerName));
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ServerGui serverGui = new ServerGui();
-            serverGui.Show();
-        }
     }
 }
 

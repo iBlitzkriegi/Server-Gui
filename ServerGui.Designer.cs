@@ -62,8 +62,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.PlayerFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.ConsoleTextBox = new System.Windows.Forms.RichTextBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.StartupPage = new System.Windows.Forms.TabPage();
             this.ProgressBarTimer = new System.Windows.Forms.Timer(this.components);
             this.CPU = new System.Diagnostics.PerformanceCounter();
             this.RAM = new System.Diagnostics.PerformanceCounter();
@@ -93,7 +92,6 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CPU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RAM)).BeginInit();
             this.PlayersContextMenu.SuspendLayout();
@@ -129,7 +127,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.StartupPage);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -489,26 +487,15 @@
             this.ConsoleTextBox.TabIndex = 1;
             this.ConsoleTextBox.Text = "";
             // 
-            // tabPage1
+            // StartupPage
             // 
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(976, 648);
-            this.tabPage1.TabIndex = 4;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(203, 232);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.StartupPage.Location = new System.Drawing.Point(4, 24);
+            this.StartupPage.Name = "StartupPage";
+            this.StartupPage.Padding = new System.Windows.Forms.Padding(3);
+            this.StartupPage.Size = new System.Drawing.Size(976, 648);
+            this.StartupPage.TabIndex = 4;
+            this.StartupPage.Text = "tabPage1";
+            this.StartupPage.UseVisualStyleBackColor = true;
             // 
             // ProgressBarTimer
             // 
@@ -631,7 +618,6 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CPU)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RAM)).EndInit();
             this.PlayersContextMenu.ResumeLayout(false);
@@ -684,8 +670,7 @@
         private System.Windows.Forms.ToolStripMenuItem survivalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem creativeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem spectatorToolStripMenuItem;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabPage StartupPage;
         private System.Windows.Forms.DataGridView PlayersGridView;
     }
 }
