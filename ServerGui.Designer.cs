@@ -78,27 +78,26 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CurrentConfigurationLabel = new System.Windows.Forms.Label();
+            this.CurrentConfigurationComboBox = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.label3 = new System.Windows.Forms.Label();
+            this.JavaVersionLabel = new System.Windows.Forms.Label();
+            this.JavaVersionComboBox = new System.Windows.Forms.ComboBox();
+            this.MinRamTrackBar = new System.Windows.Forms.TrackBar();
+            this.MinRamLabel = new System.Windows.Forms.Label();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.trackBar3 = new System.Windows.Forms.TrackBar();
+            this.MaxRamLabel = new System.Windows.Forms.Label();
+            this.MaxRamTrackBar = new System.Windows.Forms.TrackBar();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.CustomArgumentsTextBox = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
+            this.JarFileLabel = new System.Windows.Forms.Label();
+            this.JarFileTextBox = new System.Windows.Forms.TextBox();
+            this.JarFileSelectionButton = new System.Windows.Forms.Button();
+            this.CreateConfigurationButton = new System.Windows.Forms.Button();
+            this.StartupPageFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ServerOptionsGroupBox = new System.Windows.Forms.GroupBox();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlayersGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -124,13 +123,13 @@
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MinRamTrackBar)).BeginInit();
             this.flowLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxRamTrackBar)).BeginInit();
             this.flowLayoutPanel6.SuspendLayout();
-            this.flowLayoutPanel7.SuspendLayout();
+            this.StartupPageFlowPanel.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.ServerOptionsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -624,8 +623,8 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.Controls.Add(this.comboBox1);
+            this.flowLayoutPanel1.Controls.Add(this.CurrentConfigurationLabel);
+            this.flowLayoutPanel1.Controls.Add(this.CurrentConfigurationComboBox);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
@@ -636,8 +635,7 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.label5);
-            this.flowLayoutPanel2.Controls.Add(this.textBox1);
-            this.flowLayoutPanel2.Controls.Add(this.button1);
+            this.flowLayoutPanel2.Controls.Add(this.CustomArgumentsTextBox);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(6, 325);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 14, 0, 0);
@@ -647,8 +645,8 @@
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.Controls.Add(this.label3);
-            this.flowLayoutPanel3.Controls.Add(this.trackBar1);
+            this.flowLayoutPanel3.Controls.Add(this.MinRamLabel);
+            this.flowLayoutPanel3.Controls.Add(this.MinRamTrackBar);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(6, 153);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(0, 14, 0, 0);
@@ -656,31 +654,31 @@
             this.flowLayoutPanel3.TabIndex = 1;
             this.flowLayoutPanel3.WrapContents = false;
             // 
-            // label1
+            // CurrentConfigurationLabel
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Current Configuration";
+            this.CurrentConfigurationLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CurrentConfigurationLabel.AutoSize = true;
+            this.CurrentConfigurationLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CurrentConfigurationLabel.Location = new System.Drawing.Point(3, 18);
+            this.CurrentConfigurationLabel.Name = "CurrentConfigurationLabel";
+            this.CurrentConfigurationLabel.Size = new System.Drawing.Size(173, 21);
+            this.CurrentConfigurationLabel.TabIndex = 0;
+            this.CurrentConfigurationLabel.Text = "Current Configuration";
             // 
-            // comboBox1
+            // CurrentConfigurationComboBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(182, 15);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(773, 27);
-            this.comboBox1.TabIndex = 1;
+            this.CurrentConfigurationComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CurrentConfigurationComboBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CurrentConfigurationComboBox.FormattingEnabled = true;
+            this.CurrentConfigurationComboBox.Location = new System.Drawing.Point(182, 15);
+            this.CurrentConfigurationComboBox.Name = "CurrentConfigurationComboBox";
+            this.CurrentConfigurationComboBox.Size = new System.Drawing.Size(773, 27);
+            this.CurrentConfigurationComboBox.TabIndex = 1;
             // 
             // flowLayoutPanel4
             // 
-            this.flowLayoutPanel4.Controls.Add(this.label2);
-            this.flowLayoutPanel4.Controls.Add(this.comboBox2);
+            this.flowLayoutPanel4.Controls.Add(this.JavaVersionLabel);
+            this.flowLayoutPanel4.Controls.Add(this.JavaVersionComboBox);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(6, 21);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Padding = new System.Windows.Forms.Padding(0, 14, 0, 0);
@@ -688,52 +686,52 @@
             this.flowLayoutPanel4.TabIndex = 2;
             this.flowLayoutPanel4.WrapContents = false;
             // 
-            // label2
+            // JavaVersionLabel
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 21);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Java Version";
+            this.JavaVersionLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.JavaVersionLabel.AutoSize = true;
+            this.JavaVersionLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JavaVersionLabel.Location = new System.Drawing.Point(3, 17);
+            this.JavaVersionLabel.Name = "JavaVersionLabel";
+            this.JavaVersionLabel.Size = new System.Drawing.Size(103, 21);
+            this.JavaVersionLabel.TabIndex = 0;
+            this.JavaVersionLabel.Text = "Java Version";
             // 
-            // comboBox2
+            // JavaVersionComboBox
             // 
-            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(112, 17);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(831, 27);
-            this.comboBox2.TabIndex = 1;
+            this.JavaVersionComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.JavaVersionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.JavaVersionComboBox.FormattingEnabled = true;
+            this.JavaVersionComboBox.Location = new System.Drawing.Point(112, 17);
+            this.JavaVersionComboBox.Name = "JavaVersionComboBox";
+            this.JavaVersionComboBox.Size = new System.Drawing.Size(831, 27);
+            this.JavaVersionComboBox.TabIndex = 1;
             // 
-            // trackBar1
+            // MinRamTrackBar
             // 
-            this.trackBar1.LargeChange = 0;
-            this.trackBar1.Location = new System.Drawing.Point(161, 17);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(784, 45);
-            this.trackBar1.TabIndex = 3;
-            this.trackBar1.TickFrequency = 0;
-            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.MinRamTrackBar.LargeChange = 0;
+            this.MinRamTrackBar.Location = new System.Drawing.Point(161, 17);
+            this.MinRamTrackBar.Name = "MinRamTrackBar";
+            this.MinRamTrackBar.Size = new System.Drawing.Size(784, 45);
+            this.MinRamTrackBar.TabIndex = 3;
+            this.MinRamTrackBar.TickFrequency = 0;
+            this.MinRamTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
             // 
-            // label3
+            // MinRamLabel
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(152, 21);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Min Ram: 1422MB";
+            this.MinRamLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.MinRamLabel.AutoSize = true;
+            this.MinRamLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinRamLabel.Location = new System.Drawing.Point(3, 29);
+            this.MinRamLabel.Name = "MinRamLabel";
+            this.MinRamLabel.Size = new System.Drawing.Size(152, 21);
+            this.MinRamLabel.TabIndex = 2;
+            this.MinRamLabel.Text = "Min Ram: 1422MB";
             // 
             // flowLayoutPanel5
             // 
-            this.flowLayoutPanel5.Controls.Add(this.label4);
-            this.flowLayoutPanel5.Controls.Add(this.trackBar3);
+            this.flowLayoutPanel5.Controls.Add(this.MaxRamLabel);
+            this.flowLayoutPanel5.Controls.Add(this.MaxRamTrackBar);
             this.flowLayoutPanel5.Location = new System.Drawing.Point(6, 239);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Padding = new System.Windows.Forms.Padding(0, 14, 0, 0);
@@ -741,26 +739,26 @@
             this.flowLayoutPanel5.TabIndex = 4;
             this.flowLayoutPanel5.WrapContents = false;
             // 
-            // label4
+            // MaxRamLabel
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 29);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(156, 21);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Max Ram: 1422MB";
+            this.MaxRamLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.MaxRamLabel.AutoSize = true;
+            this.MaxRamLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaxRamLabel.Location = new System.Drawing.Point(3, 29);
+            this.MaxRamLabel.Name = "MaxRamLabel";
+            this.MaxRamLabel.Size = new System.Drawing.Size(156, 21);
+            this.MaxRamLabel.TabIndex = 2;
+            this.MaxRamLabel.Text = "Max Ram: 1422MB";
             // 
-            // trackBar3
+            // MaxRamTrackBar
             // 
-            this.trackBar3.LargeChange = 0;
-            this.trackBar3.Location = new System.Drawing.Point(165, 17);
-            this.trackBar3.Name = "trackBar3";
-            this.trackBar3.Size = new System.Drawing.Size(780, 45);
-            this.trackBar3.TabIndex = 3;
-            this.trackBar3.TickFrequency = 0;
-            this.trackBar3.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.MaxRamTrackBar.LargeChange = 0;
+            this.MaxRamTrackBar.Location = new System.Drawing.Point(165, 17);
+            this.MaxRamTrackBar.Name = "MaxRamTrackBar";
+            this.MaxRamTrackBar.Size = new System.Drawing.Size(780, 45);
+            this.MaxRamTrackBar.TabIndex = 3;
+            this.MaxRamTrackBar.TickFrequency = 0;
+            this.MaxRamTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
             // 
             // label5
             // 
@@ -773,29 +771,19 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Custom Arguments";
             // 
-            // textBox1
+            // CustomArgumentsTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(163, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(684, 26);
-            this.textBox1.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(853, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 26);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.CustomArgumentsTextBox.Location = new System.Drawing.Point(163, 17);
+            this.CustomArgumentsTextBox.Name = "CustomArgumentsTextBox";
+            this.CustomArgumentsTextBox.ReadOnly = true;
+            this.CustomArgumentsTextBox.Size = new System.Drawing.Size(786, 26);
+            this.CustomArgumentsTextBox.TabIndex = 2;
             // 
             // flowLayoutPanel6
             // 
-            this.flowLayoutPanel6.Controls.Add(this.label6);
-            this.flowLayoutPanel6.Controls.Add(this.textBox2);
-            this.flowLayoutPanel6.Controls.Add(this.button2);
+            this.flowLayoutPanel6.Controls.Add(this.JarFileLabel);
+            this.flowLayoutPanel6.Controls.Add(this.JarFileTextBox);
+            this.flowLayoutPanel6.Controls.Add(this.JarFileSelectionButton);
             this.flowLayoutPanel6.Location = new System.Drawing.Point(6, 87);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
             this.flowLayoutPanel6.Padding = new System.Windows.Forms.Padding(0, 14, 0, 0);
@@ -803,81 +791,81 @@
             this.flowLayoutPanel6.TabIndex = 4;
             this.flowLayoutPanel6.WrapContents = false;
             // 
-            // label6
+            // JarFileLabel
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 19);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 21);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "JAR file: ";
+            this.JarFileLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.JarFileLabel.AutoSize = true;
+            this.JarFileLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JarFileLabel.Location = new System.Drawing.Point(3, 19);
+            this.JarFileLabel.Name = "JarFileLabel";
+            this.JarFileLabel.Size = new System.Drawing.Size(79, 21);
+            this.JarFileLabel.TabIndex = 1;
+            this.JarFileLabel.Text = "JAR file: ";
             // 
-            // textBox2
+            // JarFileTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(88, 17);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(759, 26);
-            this.textBox2.TabIndex = 2;
+            this.JarFileTextBox.Location = new System.Drawing.Point(88, 17);
+            this.JarFileTextBox.Name = "JarFileTextBox";
+            this.JarFileTextBox.ReadOnly = true;
+            this.JarFileTextBox.Size = new System.Drawing.Size(759, 26);
+            this.JarFileTextBox.TabIndex = 2;
             // 
-            // button2
+            // JarFileSelectionButton
             // 
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(853, 17);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 26);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "...";
-            this.button2.UseVisualStyleBackColor = true;
+            this.JarFileSelectionButton.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JarFileSelectionButton.Location = new System.Drawing.Point(853, 17);
+            this.JarFileSelectionButton.Name = "JarFileSelectionButton";
+            this.JarFileSelectionButton.Size = new System.Drawing.Size(91, 26);
+            this.JarFileSelectionButton.TabIndex = 3;
+            this.JarFileSelectionButton.Text = "...";
+            this.JarFileSelectionButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // CreateConfigurationButton
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(3, 458);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(957, 73);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Create New Configuration";
-            this.button3.UseVisualStyleBackColor = true;
+            this.CreateConfigurationButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CreateConfigurationButton.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreateConfigurationButton.Location = new System.Drawing.Point(3, 458);
+            this.CreateConfigurationButton.Name = "CreateConfigurationButton";
+            this.CreateConfigurationButton.Size = new System.Drawing.Size(957, 73);
+            this.CreateConfigurationButton.TabIndex = 5;
+            this.CreateConfigurationButton.Text = "Create New Configuration";
+            this.CreateConfigurationButton.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutPanel7
+            // StartupPageFlowPanel
             // 
-            this.flowLayoutPanel7.Controls.Add(this.flowLayoutPanel1);
-            this.flowLayoutPanel7.Controls.Add(this.groupBox1);
-            this.flowLayoutPanel7.Controls.Add(this.button3);
-            this.flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(962, 634);
-            this.flowLayoutPanel7.TabIndex = 6;
+            this.StartupPageFlowPanel.Controls.Add(this.flowLayoutPanel1);
+            this.StartupPageFlowPanel.Controls.Add(this.ServerOptionsGroupBox);
+            this.StartupPageFlowPanel.Controls.Add(this.CreateConfigurationButton);
+            this.StartupPageFlowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StartupPageFlowPanel.Location = new System.Drawing.Point(0, 0);
+            this.StartupPageFlowPanel.Name = "StartupPageFlowPanel";
+            this.StartupPageFlowPanel.Size = new System.Drawing.Size(962, 634);
+            this.StartupPageFlowPanel.TabIndex = 6;
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.flowLayoutPanel7);
+            this.panel1.Controls.Add(this.StartupPageFlowPanel);
             this.panel1.Location = new System.Drawing.Point(6, 6);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(964, 636);
             this.panel1.TabIndex = 7;
             // 
-            // groupBox1
+            // ServerOptionsGroupBox
             // 
-            this.groupBox1.Controls.Add(this.flowLayoutPanel6);
-            this.groupBox1.Controls.Add(this.flowLayoutPanel4);
-            this.groupBox1.Controls.Add(this.flowLayoutPanel2);
-            this.groupBox1.Controls.Add(this.flowLayoutPanel5);
-            this.groupBox1.Controls.Add(this.flowLayoutPanel3);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 60);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(955, 392);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Java Server Options";
+            this.ServerOptionsGroupBox.Controls.Add(this.flowLayoutPanel6);
+            this.ServerOptionsGroupBox.Controls.Add(this.flowLayoutPanel4);
+            this.ServerOptionsGroupBox.Controls.Add(this.flowLayoutPanel2);
+            this.ServerOptionsGroupBox.Controls.Add(this.flowLayoutPanel5);
+            this.ServerOptionsGroupBox.Controls.Add(this.flowLayoutPanel3);
+            this.ServerOptionsGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ServerOptionsGroupBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ServerOptionsGroupBox.Location = new System.Drawing.Point(3, 60);
+            this.ServerOptionsGroupBox.Name = "ServerOptionsGroupBox";
+            this.ServerOptionsGroupBox.Size = new System.Drawing.Size(955, 392);
+            this.ServerOptionsGroupBox.TabIndex = 8;
+            this.ServerOptionsGroupBox.TabStop = false;
+            this.ServerOptionsGroupBox.Text = "Java Server Options";
             // 
             // ServerGui
             // 
@@ -924,15 +912,15 @@
             this.flowLayoutPanel3.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MinRamTrackBar)).EndInit();
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxRamTrackBar)).EndInit();
             this.flowLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel6.PerformLayout();
-            this.flowLayoutPanel7.ResumeLayout(false);
+            this.StartupPageFlowPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.ServerOptionsGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -987,27 +975,26 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label CurrentConfigurationLabel;
+        private System.Windows.Forms.ComboBox CurrentConfigurationComboBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Label JavaVersionLabel;
+        private System.Windows.Forms.ComboBox JavaVersionComboBox;
+        private System.Windows.Forms.Label MinRamLabel;
+        private System.Windows.Forms.TrackBar MinRamTrackBar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TrackBar trackBar3;
+        private System.Windows.Forms.Label MaxRamLabel;
+        private System.Windows.Forms.TrackBar MaxRamTrackBar;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox CustomArgumentsTextBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
+        private System.Windows.Forms.Label JarFileLabel;
+        private System.Windows.Forms.TextBox JarFileTextBox;
+        private System.Windows.Forms.Button JarFileSelectionButton;
+        private System.Windows.Forms.Button CreateConfigurationButton;
+        private System.Windows.Forms.FlowLayoutPanel StartupPageFlowPanel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox ServerOptionsGroupBox;
     }
 }
 
