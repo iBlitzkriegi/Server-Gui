@@ -88,7 +88,7 @@
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.MaxRamLabel = new System.Windows.Forms.Label();
             this.MaxRamTrackBar = new System.Windows.Forms.TrackBar();
-            this.label5 = new System.Windows.Forms.Label();
+            this.CustomArgumentsLabel = new System.Windows.Forms.Label();
             this.CustomArgumentsTextBox = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.JarFileLabel = new System.Windows.Forms.Label();
@@ -623,6 +623,9 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel1.Controls.Add(this.CurrentConfigurationLabel);
             this.flowLayoutPanel1.Controls.Add(this.CurrentConfigurationComboBox);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
@@ -634,7 +637,7 @@
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.label5);
+            this.flowLayoutPanel2.Controls.Add(this.CustomArgumentsLabel);
             this.flowLayoutPanel2.Controls.Add(this.CustomArgumentsTextBox);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(6, 325);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -677,6 +680,7 @@
             // 
             // flowLayoutPanel4
             // 
+            this.flowLayoutPanel4.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel4.Controls.Add(this.JavaVersionLabel);
             this.flowLayoutPanel4.Controls.Add(this.JavaVersionComboBox);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(6, 21);
@@ -760,27 +764,28 @@
             this.MaxRamTrackBar.TickFrequency = 0;
             this.MaxRamTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
             // 
-            // label5
+            // CustomArgumentsLabel
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(154, 21);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Custom Arguments";
+            this.CustomArgumentsLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CustomArgumentsLabel.AutoSize = true;
+            this.CustomArgumentsLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomArgumentsLabel.Location = new System.Drawing.Point(3, 19);
+            this.CustomArgumentsLabel.Name = "CustomArgumentsLabel";
+            this.CustomArgumentsLabel.Size = new System.Drawing.Size(154, 21);
+            this.CustomArgumentsLabel.TabIndex = 1;
+            this.CustomArgumentsLabel.Text = "Custom Arguments";
             // 
             // CustomArgumentsTextBox
             // 
             this.CustomArgumentsTextBox.Location = new System.Drawing.Point(163, 17);
             this.CustomArgumentsTextBox.Name = "CustomArgumentsTextBox";
             this.CustomArgumentsTextBox.ReadOnly = true;
-            this.CustomArgumentsTextBox.Size = new System.Drawing.Size(786, 26);
+            this.CustomArgumentsTextBox.Size = new System.Drawing.Size(782, 26);
             this.CustomArgumentsTextBox.TabIndex = 2;
             // 
             // flowLayoutPanel6
             // 
+            this.flowLayoutPanel6.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel6.Controls.Add(this.JarFileLabel);
             this.flowLayoutPanel6.Controls.Add(this.JarFileTextBox);
             this.flowLayoutPanel6.Controls.Add(this.JarFileSelectionButton);
@@ -833,17 +838,23 @@
             // 
             // StartupPageFlowPanel
             // 
+            this.StartupPageFlowPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.StartupPageFlowPanel.BackColor = System.Drawing.Color.Transparent;
             this.StartupPageFlowPanel.Controls.Add(this.flowLayoutPanel1);
             this.StartupPageFlowPanel.Controls.Add(this.ServerOptionsGroupBox);
             this.StartupPageFlowPanel.Controls.Add(this.CreateConfigurationButton);
-            this.StartupPageFlowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StartupPageFlowPanel.Location = new System.Drawing.Point(0, 0);
             this.StartupPageFlowPanel.Name = "StartupPageFlowPanel";
             this.StartupPageFlowPanel.Size = new System.Drawing.Size(962, 634);
             this.StartupPageFlowPanel.TabIndex = 6;
+            this.StartupPageFlowPanel.Resize += new System.EventHandler(this.StartupPageFlowPanel_Resize);
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.StartupPageFlowPanel);
             this.panel1.Location = new System.Drawing.Point(6, 6);
@@ -853,12 +864,14 @@
             // 
             // ServerOptionsGroupBox
             // 
+            this.ServerOptionsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ServerOptionsGroupBox.BackColor = System.Drawing.Color.Transparent;
             this.ServerOptionsGroupBox.Controls.Add(this.flowLayoutPanel6);
             this.ServerOptionsGroupBox.Controls.Add(this.flowLayoutPanel4);
             this.ServerOptionsGroupBox.Controls.Add(this.flowLayoutPanel2);
             this.ServerOptionsGroupBox.Controls.Add(this.flowLayoutPanel5);
             this.ServerOptionsGroupBox.Controls.Add(this.flowLayoutPanel3);
-            this.ServerOptionsGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.ServerOptionsGroupBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ServerOptionsGroupBox.Location = new System.Drawing.Point(3, 60);
             this.ServerOptionsGroupBox.Name = "ServerOptionsGroupBox";
@@ -866,6 +879,7 @@
             this.ServerOptionsGroupBox.TabIndex = 8;
             this.ServerOptionsGroupBox.TabStop = false;
             this.ServerOptionsGroupBox.Text = "Java Server Options";
+            this.ServerOptionsGroupBox.Resize += new System.EventHandler(this.ServerOptionsGroupBox_Resize);
             // 
             // ServerGui
             // 
@@ -985,7 +999,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.Label MaxRamLabel;
         private System.Windows.Forms.TrackBar MaxRamTrackBar;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label CustomArgumentsLabel;
         private System.Windows.Forms.TextBox CustomArgumentsTextBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
         private System.Windows.Forms.Label JarFileLabel;
