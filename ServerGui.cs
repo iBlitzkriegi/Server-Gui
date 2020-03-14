@@ -453,10 +453,7 @@ namespace ServerGui
         private void ServerOptionsGroupBox_Resize(object sender, EventArgs e)
         {
             int padding = 20;
-            foreach (Control control in this.ServerOptionsGroupBox.Controls)
-            {
-                control.Width = this.ServerOptionsGroupBox.Width;
-            }
+
 
             this.JavaVersionComboBox.Width = this.flowLayoutPanel4.Width - this.JavaVersionLabel.Width - padding;
             this.JarFileTextBox.Width = this.flowLayoutPanel4.Width - this.JarFileLabel.Width - this.JarFileSelectionButton.Width - 25;
