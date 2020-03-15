@@ -438,31 +438,6 @@ namespace ServerGui
             this.ExecuteServerCommand(String.Format("gamemode {0} {1}", item.Text.ToLower(), playerName));
         }
 
-        private void StartupPageFlowPanel_Resize(object sender, EventArgs e)
-        {
-            int padding = 15;
-
-            this.flowLayoutPanel1.Width = StartupPageFlowPanel.Width;
-            this.CurrentConfigurationComboBox.Width = this.flowLayoutPanel1.Width - this.CurrentConfigurationLabel.Width - padding;
-            this.ServerOptionsGroupBox.Width = this.StartupPageFlowPanel.Width - 10;
-
-
-
-        }
-
-        private void ServerOptionsGroupBox_Resize(object sender, EventArgs e)
-        {
-            int padding = 20;
-
-
-            this.JavaVersionComboBox.Width = this.flowLayoutPanel4.Width - this.JavaVersionLabel.Width - padding;
-            this.JarFileTextBox.Width = this.flowLayoutPanel4.Width - this.JarFileLabel.Width - this.JarFileSelectionButton.Width - 25;
-            this.MaxRamTrackBar.Width = this.flowLayoutPanel5.Width - this.MaxRamLabel.Width - padding;
-            this.MinRamTrackBar.Width = this.flowLayoutPanel3.Width - this.MinRamLabel.Width - padding;
-            this.CustomArgumentsTextBox.Width = this.flowLayoutPanel2.Width - this.CustomArgumentsLabel.Width - padding;
-            this.CreateConfigurationButton.Width = this.ServerOptionsGroupBox.Width;
-
-        }
     }
 }
 
