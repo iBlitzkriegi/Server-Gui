@@ -29,19 +29,35 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerGui));
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.PlayersGridView = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.SayLabel = new System.Windows.Forms.Label();
-            this.SayCheckBox = new System.Windows.Forms.CheckBox();
-            this.CommandTextBox = new System.Windows.Forms.TextBox();
-            this.ExecuteButton = new System.Windows.Forms.Button();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.RamUsageLabel = new System.Windows.Forms.Label();
+            this.RamProgressBar = new System.Windows.Forms.ProgressBar();
+            this.RamPercentLabel = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.CpuUsageLabel = new System.Windows.Forms.Label();
             this.CpuProgressBar = new System.Windows.Forms.ProgressBar();
             this.CpuPercentLabel = new System.Windows.Forms.Label();
-            this.RamUsageLabel = new System.Windows.Forms.Label();
-            this.RamPercentLabel = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.GuiUsageLabel = new System.Windows.Forms.Label();
+            this.GuiProgressBar = new System.Windows.Forms.ProgressBar();
+            this.GuiPercentLabel = new System.Windows.Forms.Label();
+            this.ConsolePageButtonsFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.StartButton = new System.Windows.Forms.Button();
+            this.RestartButton = new System.Windows.Forms.Button();
+            this.ReloadButton = new System.Windows.Forms.Button();
+            this.KillButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.SayCheckBox = new System.Windows.Forms.CheckBox();
+            this.SayLabel = new System.Windows.Forms.Label();
+            this.ExecuteButton = new System.Windows.Forms.Button();
+            this.CommandTextBox = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.PlayerFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.ConsoleTextBox = new System.Windows.Forms.RichTextBox();
@@ -80,25 +96,17 @@
             this.survivalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creativeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spectatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.GuiPercentLabel = new System.Windows.Forms.Label();
-            this.GuiProgressBar = new System.Windows.Forms.ProgressBar();
-            this.GuiUsageLabel = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.ConsolePageButtonsFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.KillButton = new System.Windows.Forms.Button();
-            this.ReloadButton = new System.Windows.Forms.Button();
-            this.RestartButton = new System.Windows.Forms.Button();
-            this.StartButton = new System.Windows.Forms.Button();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.RamProgressBar = new System.Windows.Forms.ProgressBar();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlayersGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.ConsolePageButtonsFlowPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -117,13 +125,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CPU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RAM)).BeginInit();
             this.PlayersContextMenu.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.ConsolePageButtonsFlowPanel.SuspendLayout();
-            this.panel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -178,53 +179,76 @@
             this.tabPage3.Text = "Console";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // SayLabel
+            // panel13
             // 
-            this.SayLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.SayLabel.AutoSize = true;
-            this.SayLabel.BackColor = System.Drawing.Color.White;
-            this.SayLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SayLabel.Location = new System.Drawing.Point(1, 0);
-            this.SayLabel.Name = "SayLabel";
-            this.SayLabel.Size = new System.Drawing.Size(32, 19);
-            this.SayLabel.TabIndex = 7;
-            this.SayLabel.Text = "Say";
+            this.panel13.BackColor = System.Drawing.Color.White;
+            this.panel13.Controls.Add(this.panel12);
+            this.panel13.Controls.Add(this.panel11);
+            this.panel13.Controls.Add(this.panel10);
+            this.panel13.Controls.Add(this.ConsolePageButtonsFlowPanel);
+            this.panel13.Controls.Add(this.panel1);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel13.Location = new System.Drawing.Point(3, 471);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(970, 174);
+            this.panel13.TabIndex = 34;
             // 
-            // SayCheckBox
+            // panel12
             // 
-            this.SayCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.SayCheckBox.AutoSize = true;
-            this.SayCheckBox.BackColor = System.Drawing.Color.White;
-            this.SayCheckBox.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SayCheckBox.Location = new System.Drawing.Point(33, 4);
-            this.SayCheckBox.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.SayCheckBox.Name = "SayCheckBox";
-            this.SayCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.SayCheckBox.TabIndex = 8;
-            this.SayCheckBox.UseVisualStyleBackColor = false;
+            this.panel12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel12.BackColor = System.Drawing.Color.White;
+            this.panel12.Controls.Add(this.RamUsageLabel);
+            this.panel12.Controls.Add(this.RamProgressBar);
+            this.panel12.Controls.Add(this.RamPercentLabel);
+            this.panel12.Location = new System.Drawing.Point(88, 123);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(879, 43);
+            this.panel12.TabIndex = 31;
             // 
-            // CommandTextBox
+            // RamUsageLabel
             // 
-            this.CommandTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CommandTextBox.BackColor = System.Drawing.Color.White;
-            this.CommandTextBox.Location = new System.Drawing.Point(54, 6);
-            this.CommandTextBox.Name = "CommandTextBox";
-            this.CommandTextBox.Size = new System.Drawing.Size(832, 22);
-            this.CommandTextBox.TabIndex = 9;
-            this.CommandTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CommandTextBox_KeyDown);
+            this.RamUsageLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.RamUsageLabel.AutoSize = true;
+            this.RamUsageLabel.BackColor = System.Drawing.Color.White;
+            this.RamUsageLabel.Location = new System.Drawing.Point(-1, 12);
+            this.RamUsageLabel.Name = "RamUsageLabel";
+            this.RamUsageLabel.Size = new System.Drawing.Size(67, 15);
+            this.RamUsageLabel.TabIndex = 17;
+            this.RamUsageLabel.Text = "Ram Usage";
             // 
-            // ExecuteButton
+            // RamProgressBar
             // 
-            this.ExecuteButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.ExecuteButton.BackColor = System.Drawing.Color.LightGray;
-            this.ExecuteButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExecuteButton.Location = new System.Drawing.Point(892, 6);
-            this.ExecuteButton.Name = "ExecuteButton";
-            this.ExecuteButton.Size = new System.Drawing.Size(75, 22);
-            this.ExecuteButton.TabIndex = 9;
-            this.ExecuteButton.Text = "Execute";
-            this.ExecuteButton.UseVisualStyleBackColor = false;
-            this.ExecuteButton.Click += new System.EventHandler(this.ExecuteButton_Click);
+            this.RamProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.RamProgressBar.BackColor = System.Drawing.Color.White;
+            this.RamProgressBar.Location = new System.Drawing.Point(68, 8);
+            this.RamProgressBar.Name = "RamProgressBar";
+            this.RamProgressBar.Size = new System.Drawing.Size(774, 23);
+            this.RamProgressBar.TabIndex = 11;
+            this.RamProgressBar.Value = 50;
+            // 
+            // RamPercentLabel
+            // 
+            this.RamPercentLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.RamPercentLabel.AutoSize = true;
+            this.RamPercentLabel.BackColor = System.Drawing.Color.White;
+            this.RamPercentLabel.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RamPercentLabel.Location = new System.Drawing.Point(847, 11);
+            this.RamPercentLabel.Name = "RamPercentLabel";
+            this.RamPercentLabel.Size = new System.Drawing.Size(35, 17);
+            this.RamPercentLabel.TabIndex = 14;
+            this.RamPercentLabel.Text = "34%";
+            // 
+            // panel11
+            // 
+            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel11.BackColor = System.Drawing.Color.White;
+            this.panel11.Controls.Add(this.CpuUsageLabel);
+            this.panel11.Controls.Add(this.CpuProgressBar);
+            this.panel11.Controls.Add(this.CpuPercentLabel);
+            this.panel11.Location = new System.Drawing.Point(87, 79);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(879, 43);
+            this.panel11.TabIndex = 30;
             // 
             // CpuUsageLabel
             // 
@@ -259,28 +283,181 @@
             this.CpuPercentLabel.TabIndex = 15;
             this.CpuPercentLabel.Text = "34%";
             // 
-            // RamUsageLabel
+            // panel10
             // 
-            this.RamUsageLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RamUsageLabel.AutoSize = true;
-            this.RamUsageLabel.BackColor = System.Drawing.Color.White;
-            this.RamUsageLabel.Location = new System.Drawing.Point(-1, 12);
-            this.RamUsageLabel.Name = "RamUsageLabel";
-            this.RamUsageLabel.Size = new System.Drawing.Size(67, 15);
-            this.RamUsageLabel.TabIndex = 17;
-            this.RamUsageLabel.Text = "Ram Usage";
+            this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel10.BackColor = System.Drawing.Color.White;
+            this.panel10.Controls.Add(this.GuiUsageLabel);
+            this.panel10.Controls.Add(this.GuiProgressBar);
+            this.panel10.Controls.Add(this.GuiPercentLabel);
+            this.panel10.Location = new System.Drawing.Point(88, 37);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(879, 43);
+            this.panel10.TabIndex = 29;
             // 
-            // RamPercentLabel
+            // GuiUsageLabel
             // 
-            this.RamPercentLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.RamPercentLabel.AutoSize = true;
-            this.RamPercentLabel.BackColor = System.Drawing.Color.White;
-            this.RamPercentLabel.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RamPercentLabel.Location = new System.Drawing.Point(847, 11);
-            this.RamPercentLabel.Name = "RamPercentLabel";
-            this.RamPercentLabel.Size = new System.Drawing.Size(35, 17);
-            this.RamPercentLabel.TabIndex = 14;
-            this.RamPercentLabel.Text = "34%";
+            this.GuiUsageLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.GuiUsageLabel.AutoSize = true;
+            this.GuiUsageLabel.BackColor = System.Drawing.Color.White;
+            this.GuiUsageLabel.Location = new System.Drawing.Point(-1, 11);
+            this.GuiUsageLabel.Name = "GuiUsageLabel";
+            this.GuiUsageLabel.Size = new System.Drawing.Size(65, 15);
+            this.GuiUsageLabel.TabIndex = 19;
+            this.GuiUsageLabel.Text = "GUI Usage";
+            // 
+            // GuiProgressBar
+            // 
+            this.GuiProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.GuiProgressBar.BackColor = System.Drawing.Color.White;
+            this.GuiProgressBar.Location = new System.Drawing.Point(70, 9);
+            this.GuiProgressBar.Name = "GuiProgressBar";
+            this.GuiProgressBar.Size = new System.Drawing.Size(772, 23);
+            this.GuiProgressBar.TabIndex = 12;
+            this.GuiProgressBar.Value = 50;
+            // 
+            // GuiPercentLabel
+            // 
+            this.GuiPercentLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.GuiPercentLabel.AutoSize = true;
+            this.GuiPercentLabel.BackColor = System.Drawing.Color.White;
+            this.GuiPercentLabel.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GuiPercentLabel.Location = new System.Drawing.Point(844, 10);
+            this.GuiPercentLabel.Name = "GuiPercentLabel";
+            this.GuiPercentLabel.Size = new System.Drawing.Size(35, 17);
+            this.GuiPercentLabel.TabIndex = 16;
+            this.GuiPercentLabel.Text = "34%";
+            // 
+            // ConsolePageButtonsFlowPanel
+            // 
+            this.ConsolePageButtonsFlowPanel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ConsolePageButtonsFlowPanel.Controls.Add(this.StartButton);
+            this.ConsolePageButtonsFlowPanel.Controls.Add(this.RestartButton);
+            this.ConsolePageButtonsFlowPanel.Controls.Add(this.ReloadButton);
+            this.ConsolePageButtonsFlowPanel.Controls.Add(this.KillButton);
+            this.ConsolePageButtonsFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.ConsolePageButtonsFlowPanel.Location = new System.Drawing.Point(3, 37);
+            this.ConsolePageButtonsFlowPanel.Name = "ConsolePageButtonsFlowPanel";
+            this.ConsolePageButtonsFlowPanel.Size = new System.Drawing.Size(83, 129);
+            this.ConsolePageButtonsFlowPanel.TabIndex = 24;
+            this.ConsolePageButtonsFlowPanel.WrapContents = false;
+            // 
+            // StartButton
+            // 
+            this.StartButton.BackColor = System.Drawing.Color.LightGray;
+            this.StartButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartButton.Location = new System.Drawing.Point(3, 3);
+            this.StartButton.Name = "StartButton";
+            this.StartButton.Size = new System.Drawing.Size(75, 23);
+            this.StartButton.TabIndex = 3;
+            this.StartButton.Text = "Start";
+            this.StartButton.UseVisualStyleBackColor = false;
+            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
+            // 
+            // RestartButton
+            // 
+            this.RestartButton.BackColor = System.Drawing.Color.LightGray;
+            this.RestartButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RestartButton.Location = new System.Drawing.Point(3, 32);
+            this.RestartButton.Name = "RestartButton";
+            this.RestartButton.Size = new System.Drawing.Size(75, 23);
+            this.RestartButton.TabIndex = 4;
+            this.RestartButton.Text = "Restart";
+            this.RestartButton.UseVisualStyleBackColor = false;
+            this.RestartButton.Click += new System.EventHandler(this.RestartButton_Click);
+            // 
+            // ReloadButton
+            // 
+            this.ReloadButton.BackColor = System.Drawing.Color.LightGray;
+            this.ReloadButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReloadButton.Location = new System.Drawing.Point(3, 61);
+            this.ReloadButton.Name = "ReloadButton";
+            this.ReloadButton.Size = new System.Drawing.Size(75, 23);
+            this.ReloadButton.TabIndex = 5;
+            this.ReloadButton.Text = "Reload";
+            this.ReloadButton.UseVisualStyleBackColor = false;
+            this.ReloadButton.Click += new System.EventHandler(this.ReloadButton_Click);
+            // 
+            // KillButton
+            // 
+            this.KillButton.BackColor = System.Drawing.Color.LightGray;
+            this.KillButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KillButton.Location = new System.Drawing.Point(3, 90);
+            this.KillButton.Name = "KillButton";
+            this.KillButton.Size = new System.Drawing.Size(75, 23);
+            this.KillButton.TabIndex = 6;
+            this.KillButton.Text = "Kill";
+            this.KillButton.UseVisualStyleBackColor = false;
+            this.KillButton.Click += new System.EventHandler(this.KillButton_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.panel9);
+            this.panel1.Controls.Add(this.ExecuteButton);
+            this.panel1.Controls.Add(this.CommandTextBox);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(970, 34);
+            this.panel1.TabIndex = 28;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.SayCheckBox);
+            this.panel9.Controls.Add(this.SayLabel);
+            this.panel9.Location = new System.Drawing.Point(1, 4);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(50, 27);
+            this.panel9.TabIndex = 29;
+            // 
+            // SayCheckBox
+            // 
+            this.SayCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.SayCheckBox.AutoSize = true;
+            this.SayCheckBox.BackColor = System.Drawing.Color.White;
+            this.SayCheckBox.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SayCheckBox.Location = new System.Drawing.Point(33, 4);
+            this.SayCheckBox.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.SayCheckBox.Name = "SayCheckBox";
+            this.SayCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.SayCheckBox.TabIndex = 8;
+            this.SayCheckBox.UseVisualStyleBackColor = false;
+            // 
+            // SayLabel
+            // 
+            this.SayLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.SayLabel.AutoSize = true;
+            this.SayLabel.BackColor = System.Drawing.Color.White;
+            this.SayLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SayLabel.Location = new System.Drawing.Point(1, 0);
+            this.SayLabel.Name = "SayLabel";
+            this.SayLabel.Size = new System.Drawing.Size(32, 19);
+            this.SayLabel.TabIndex = 7;
+            this.SayLabel.Text = "Say";
+            // 
+            // ExecuteButton
+            // 
+            this.ExecuteButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.ExecuteButton.BackColor = System.Drawing.Color.LightGray;
+            this.ExecuteButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExecuteButton.Location = new System.Drawing.Point(892, 6);
+            this.ExecuteButton.Name = "ExecuteButton";
+            this.ExecuteButton.Size = new System.Drawing.Size(75, 22);
+            this.ExecuteButton.TabIndex = 9;
+            this.ExecuteButton.Text = "Execute";
+            this.ExecuteButton.UseVisualStyleBackColor = false;
+            this.ExecuteButton.Click += new System.EventHandler(this.ExecuteButton_Click);
+            // 
+            // CommandTextBox
+            // 
+            this.CommandTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CommandTextBox.BackColor = System.Drawing.Color.White;
+            this.CommandTextBox.Location = new System.Drawing.Point(54, 6);
+            this.CommandTextBox.Name = "CommandTextBox";
+            this.CommandTextBox.Size = new System.Drawing.Size(832, 22);
+            this.CommandTextBox.TabIndex = 9;
+            this.CommandTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CommandTextBox_KeyDown);
             // 
             // splitContainer1
             // 
@@ -624,28 +801,28 @@
             // 
             // opToolStripMenuItem
             // 
-            this.opToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
+            this.opToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("opToolStripMenuItem.Image")));
             this.opToolStripMenuItem.Name = "opToolStripMenuItem";
             this.opToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.opToolStripMenuItem.Text = "Op";
             // 
             // deOpToolStripMenuItem
             // 
-            this.deOpToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
+            this.deOpToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deOpToolStripMenuItem.Image")));
             this.deOpToolStripMenuItem.Name = "deOpToolStripMenuItem";
             this.deOpToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.deOpToolStripMenuItem.Text = "De-Op";
             // 
             // kickToolStripMenuItem
             // 
-            this.kickToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
+            this.kickToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("kickToolStripMenuItem.Image")));
             this.kickToolStripMenuItem.Name = "kickToolStripMenuItem";
             this.kickToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.kickToolStripMenuItem.Text = "Kick";
             // 
             // banToolStripMenuItem
             // 
-            this.banToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
+            this.banToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("banToolStripMenuItem.Image")));
             this.banToolStripMenuItem.Name = "banToolStripMenuItem";
             this.banToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.banToolStripMenuItem.Text = "Ban";
@@ -656,7 +833,7 @@
             this.survivalToolStripMenuItem,
             this.creativeToolStripMenuItem,
             this.spectatorToolStripMenuItem});
-            this.gamemodeToolStripMenuItem.Image = global::ServerGui.Properties.Resources.head;
+            this.gamemodeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("gamemodeToolStripMenuItem.Image")));
             this.gamemodeToolStripMenuItem.Name = "gamemodeToolStripMenuItem";
             this.gamemodeToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.gamemodeToolStripMenuItem.Text = "Gamemode";
@@ -682,182 +859,6 @@
             this.spectatorToolStripMenuItem.Text = "Spectator";
             this.spectatorToolStripMenuItem.Click += new System.EventHandler(this.GamemodeMenu_Clicked);
             // 
-            // GuiPercentLabel
-            // 
-            this.GuiPercentLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.GuiPercentLabel.AutoSize = true;
-            this.GuiPercentLabel.BackColor = System.Drawing.Color.White;
-            this.GuiPercentLabel.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GuiPercentLabel.Location = new System.Drawing.Point(844, 10);
-            this.GuiPercentLabel.Name = "GuiPercentLabel";
-            this.GuiPercentLabel.Size = new System.Drawing.Size(35, 17);
-            this.GuiPercentLabel.TabIndex = 16;
-            this.GuiPercentLabel.Text = "34%";
-            // 
-            // GuiProgressBar
-            // 
-            this.GuiProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.GuiProgressBar.BackColor = System.Drawing.Color.White;
-            this.GuiProgressBar.Location = new System.Drawing.Point(70, 9);
-            this.GuiProgressBar.Name = "GuiProgressBar";
-            this.GuiProgressBar.Size = new System.Drawing.Size(772, 23);
-            this.GuiProgressBar.TabIndex = 12;
-            this.GuiProgressBar.Value = 50;
-            // 
-            // GuiUsageLabel
-            // 
-            this.GuiUsageLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.GuiUsageLabel.AutoSize = true;
-            this.GuiUsageLabel.BackColor = System.Drawing.Color.White;
-            this.GuiUsageLabel.Location = new System.Drawing.Point(-1, 11);
-            this.GuiUsageLabel.Name = "GuiUsageLabel";
-            this.GuiUsageLabel.Size = new System.Drawing.Size(65, 15);
-            this.GuiUsageLabel.TabIndex = 19;
-            this.GuiUsageLabel.Text = "GUI Usage";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.panel9);
-            this.panel1.Controls.Add(this.ExecuteButton);
-            this.panel1.Controls.Add(this.CommandTextBox);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(970, 34);
-            this.panel1.TabIndex = 28;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.SayCheckBox);
-            this.panel9.Controls.Add(this.SayLabel);
-            this.panel9.Location = new System.Drawing.Point(1, 4);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(50, 27);
-            this.panel9.TabIndex = 29;
-            // 
-            // panel10
-            // 
-            this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel10.BackColor = System.Drawing.Color.White;
-            this.panel10.Controls.Add(this.GuiUsageLabel);
-            this.panel10.Controls.Add(this.GuiProgressBar);
-            this.panel10.Controls.Add(this.GuiPercentLabel);
-            this.panel10.Location = new System.Drawing.Point(88, 37);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(879, 43);
-            this.panel10.TabIndex = 29;
-            // 
-            // panel11
-            // 
-            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel11.BackColor = System.Drawing.Color.White;
-            this.panel11.Controls.Add(this.CpuUsageLabel);
-            this.panel11.Controls.Add(this.CpuProgressBar);
-            this.panel11.Controls.Add(this.CpuPercentLabel);
-            this.panel11.Location = new System.Drawing.Point(87, 79);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(879, 43);
-            this.panel11.TabIndex = 30;
-            // 
-            // panel12
-            // 
-            this.panel12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel12.BackColor = System.Drawing.Color.White;
-            this.panel12.Controls.Add(this.RamUsageLabel);
-            this.panel12.Controls.Add(this.RamProgressBar);
-            this.panel12.Controls.Add(this.RamPercentLabel);
-            this.panel12.Location = new System.Drawing.Point(88, 123);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(879, 43);
-            this.panel12.TabIndex = 31;
-            // 
-            // ConsolePageButtonsFlowPanel
-            // 
-            this.ConsolePageButtonsFlowPanel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ConsolePageButtonsFlowPanel.Controls.Add(this.StartButton);
-            this.ConsolePageButtonsFlowPanel.Controls.Add(this.RestartButton);
-            this.ConsolePageButtonsFlowPanel.Controls.Add(this.ReloadButton);
-            this.ConsolePageButtonsFlowPanel.Controls.Add(this.KillButton);
-            this.ConsolePageButtonsFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.ConsolePageButtonsFlowPanel.Location = new System.Drawing.Point(3, 37);
-            this.ConsolePageButtonsFlowPanel.Name = "ConsolePageButtonsFlowPanel";
-            this.ConsolePageButtonsFlowPanel.Size = new System.Drawing.Size(83, 129);
-            this.ConsolePageButtonsFlowPanel.TabIndex = 24;
-            this.ConsolePageButtonsFlowPanel.WrapContents = false;
-            // 
-            // KillButton
-            // 
-            this.KillButton.BackColor = System.Drawing.Color.LightGray;
-            this.KillButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KillButton.Location = new System.Drawing.Point(3, 90);
-            this.KillButton.Name = "KillButton";
-            this.KillButton.Size = new System.Drawing.Size(75, 23);
-            this.KillButton.TabIndex = 6;
-            this.KillButton.Text = "Kill";
-            this.KillButton.UseVisualStyleBackColor = false;
-            this.KillButton.Click += new System.EventHandler(this.KillButton_Click);
-            // 
-            // ReloadButton
-            // 
-            this.ReloadButton.BackColor = System.Drawing.Color.LightGray;
-            this.ReloadButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReloadButton.Location = new System.Drawing.Point(3, 61);
-            this.ReloadButton.Name = "ReloadButton";
-            this.ReloadButton.Size = new System.Drawing.Size(75, 23);
-            this.ReloadButton.TabIndex = 5;
-            this.ReloadButton.Text = "Reload";
-            this.ReloadButton.UseVisualStyleBackColor = false;
-            this.ReloadButton.Click += new System.EventHandler(this.ReloadButton_Click);
-            // 
-            // RestartButton
-            // 
-            this.RestartButton.BackColor = System.Drawing.Color.LightGray;
-            this.RestartButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RestartButton.Location = new System.Drawing.Point(3, 32);
-            this.RestartButton.Name = "RestartButton";
-            this.RestartButton.Size = new System.Drawing.Size(75, 23);
-            this.RestartButton.TabIndex = 4;
-            this.RestartButton.Text = "Restart";
-            this.RestartButton.UseVisualStyleBackColor = false;
-            this.RestartButton.Click += new System.EventHandler(this.RestartButton_Click);
-            // 
-            // StartButton
-            // 
-            this.StartButton.BackColor = System.Drawing.Color.LightGray;
-            this.StartButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartButton.Location = new System.Drawing.Point(3, 3);
-            this.StartButton.Name = "StartButton";
-            this.StartButton.Size = new System.Drawing.Size(75, 23);
-            this.StartButton.TabIndex = 3;
-            this.StartButton.Text = "Start";
-            this.StartButton.UseVisualStyleBackColor = false;
-            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.White;
-            this.panel13.Controls.Add(this.panel12);
-            this.panel13.Controls.Add(this.panel11);
-            this.panel13.Controls.Add(this.panel10);
-            this.panel13.Controls.Add(this.ConsolePageButtonsFlowPanel);
-            this.panel13.Controls.Add(this.panel1);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel13.Location = new System.Drawing.Point(3, 471);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(970, 174);
-            this.panel13.TabIndex = 34;
-            // 
-            // RamProgressBar
-            // 
-            this.RamProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.RamProgressBar.BackColor = System.Drawing.Color.White;
-            this.RamProgressBar.Location = new System.Drawing.Point(68, 8);
-            this.RamProgressBar.Name = "RamProgressBar";
-            this.RamProgressBar.Size = new System.Drawing.Size(774, 23);
-            this.RamProgressBar.TabIndex = 11;
-            this.RamProgressBar.Value = 50;
-            // 
             // ServerGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -874,6 +875,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.PlayersGridView)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.ConsolePageButtonsFlowPanel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -898,18 +911,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CPU)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RAM)).EndInit();
             this.PlayersContextMenu.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
-            this.ConsolePageButtonsFlowPanel.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

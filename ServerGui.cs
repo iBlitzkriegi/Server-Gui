@@ -381,6 +381,7 @@ namespace ServerGui
             this.ProgressBarTimer.Enabled = true;
             this.maxSystemMemory = Convert.ToInt32(new ComputerInfo().TotalPhysicalMemory / 1024 / 1024);
 
+
         }
 
 
