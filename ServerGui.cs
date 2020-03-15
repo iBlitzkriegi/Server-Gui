@@ -306,30 +306,6 @@ namespace ServerGui
             this.StartServer();
         }
 
-        private void ExecuteCommandsPanel_Resize(object sender, EventArgs e)
-        {
-            this.CommandTextBox.Width = this.ExecuteCommandsPanel.Width - this.ExecuteButton.Width - this.flowLayoutPanel9.Width - 25;
-
-        }
-
-        private void BottomHalfOfConsolePanel_Resize(object sender, EventArgs e)
-        {
-            this.BottomHalfOfConsole.SuspendLayout();
-            int bottomHalfOfConsoleWidth = this.BottomHalfOfConsole.Width;
-            int padding = 35;
-
-            this.ExecuteCommandsPanel.Width = bottomHalfOfConsoleWidth;
-            this.ConsolePageUiElementsPanel.Width = bottomHalfOfConsoleWidth;
-            this.ServerStatisticsPanel.Width = bottomHalfOfConsoleWidth - this.ConsolePageButtonsFlowPanel.Width;
-            this.GuiUsagePanel.Width = bottomHalfOfConsoleWidth;
-
-            int progressBarWidth = this.ServerStatisticsPanel.Width - this.GuiUsageLabel.Width - this.GuiPercentLabel.Width - padding;
-            this.GuiProgressBar.Width = progressBarWidth;
-            this.CpuProgressBar.Width = progressBarWidth;
-            this.RamProgressBar.Width = progressBarWidth;
-            this.BottomHalfOfConsole.ResumeLayout();
-        }
-
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             string clickedItem = e.ClickedItem.Text.ToLower().Replace("-", string.Empty);
