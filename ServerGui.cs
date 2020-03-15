@@ -314,6 +314,7 @@ namespace ServerGui
 
         private void BottomHalfOfConsolePanel_Resize(object sender, EventArgs e)
         {
+            this.BottomHalfOfConsole.SuspendLayout();
             int bottomHalfOfConsoleWidth = this.BottomHalfOfConsole.Width;
             int padding = 35;
 
@@ -326,6 +327,7 @@ namespace ServerGui
             this.GuiProgressBar.Width = progressBarWidth;
             this.CpuProgressBar.Width = progressBarWidth;
             this.RamProgressBar.Width = progressBarWidth;
+            this.BottomHalfOfConsole.ResumeLayout();
         }
 
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

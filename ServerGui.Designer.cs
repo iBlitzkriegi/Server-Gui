@@ -147,7 +147,7 @@
             this.PlayersGridView.AllowUserToAddRows = false;
             this.PlayersGridView.AllowUserToDeleteRows = false;
             this.PlayersGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.PlayersGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.PlayersGridView.BackgroundColor = System.Drawing.Color.White;
             this.PlayersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PlayersGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlayersGridView.Location = new System.Drawing.Point(3, 3);
@@ -225,6 +225,7 @@
             // 
             this.SayLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.SayLabel.AutoSize = true;
+            this.SayLabel.BackColor = System.Drawing.Color.White;
             this.SayLabel.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SayLabel.Location = new System.Drawing.Point(3, 4);
             this.SayLabel.Name = "SayLabel";
@@ -236,17 +237,19 @@
             // 
             this.SayCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.SayCheckBox.AutoSize = true;
+            this.SayCheckBox.BackColor = System.Drawing.Color.White;
             this.SayCheckBox.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SayCheckBox.Location = new System.Drawing.Point(39, 8);
             this.SayCheckBox.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.SayCheckBox.Name = "SayCheckBox";
             this.SayCheckBox.Size = new System.Drawing.Size(15, 14);
             this.SayCheckBox.TabIndex = 8;
-            this.SayCheckBox.UseVisualStyleBackColor = true;
+            this.SayCheckBox.UseVisualStyleBackColor = false;
             // 
             // CommandTextBox
             // 
             this.CommandTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CommandTextBox.BackColor = System.Drawing.Color.White;
             this.CommandTextBox.Location = new System.Drawing.Point(68, 5);
             this.CommandTextBox.Name = "CommandTextBox";
             this.CommandTextBox.Size = new System.Drawing.Size(811, 22);
@@ -256,13 +259,14 @@
             // ExecuteButton
             // 
             this.ExecuteButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ExecuteButton.BackColor = System.Drawing.Color.LightGray;
             this.ExecuteButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExecuteButton.Location = new System.Drawing.Point(885, 4);
             this.ExecuteButton.Name = "ExecuteButton";
             this.ExecuteButton.Size = new System.Drawing.Size(75, 24);
             this.ExecuteButton.TabIndex = 9;
             this.ExecuteButton.Text = "Execute";
-            this.ExecuteButton.UseVisualStyleBackColor = true;
+            this.ExecuteButton.UseVisualStyleBackColor = false;
             this.ExecuteButton.Click += new System.EventHandler(this.ExecuteButton_Click);
             // 
             // ConsolePageUiElementsPanel
@@ -291,46 +295,50 @@
             // 
             // StartButton
             // 
+            this.StartButton.BackColor = System.Drawing.Color.LightGray;
             this.StartButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartButton.Location = new System.Drawing.Point(3, 3);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(75, 23);
             this.StartButton.TabIndex = 3;
             this.StartButton.Text = "Start";
-            this.StartButton.UseVisualStyleBackColor = true;
+            this.StartButton.UseVisualStyleBackColor = false;
             this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
             // RestartButton
             // 
+            this.RestartButton.BackColor = System.Drawing.Color.LightGray;
             this.RestartButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RestartButton.Location = new System.Drawing.Point(3, 32);
             this.RestartButton.Name = "RestartButton";
             this.RestartButton.Size = new System.Drawing.Size(75, 23);
             this.RestartButton.TabIndex = 4;
             this.RestartButton.Text = "Restart";
-            this.RestartButton.UseVisualStyleBackColor = true;
+            this.RestartButton.UseVisualStyleBackColor = false;
             this.RestartButton.Click += new System.EventHandler(this.RestartButton_Click);
             // 
             // ReloadButton
             // 
+            this.ReloadButton.BackColor = System.Drawing.Color.LightGray;
             this.ReloadButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReloadButton.Location = new System.Drawing.Point(3, 61);
             this.ReloadButton.Name = "ReloadButton";
             this.ReloadButton.Size = new System.Drawing.Size(75, 23);
             this.ReloadButton.TabIndex = 5;
             this.ReloadButton.Text = "Reload";
-            this.ReloadButton.UseVisualStyleBackColor = true;
+            this.ReloadButton.UseVisualStyleBackColor = false;
             this.ReloadButton.Click += new System.EventHandler(this.ReloadButton_Click);
             // 
             // KillButton
             // 
+            this.KillButton.BackColor = System.Drawing.Color.LightGray;
             this.KillButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KillButton.Location = new System.Drawing.Point(3, 90);
             this.KillButton.Name = "KillButton";
             this.KillButton.Size = new System.Drawing.Size(75, 23);
             this.KillButton.TabIndex = 6;
             this.KillButton.Text = "Kill";
-            this.KillButton.UseVisualStyleBackColor = true;
+            this.KillButton.UseVisualStyleBackColor = false;
             this.KillButton.Click += new System.EventHandler(this.KillButton_Click);
             // 
             // ServerStatisticsPanel
@@ -364,6 +372,7 @@
             // 
             this.CpuUsageLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.CpuUsageLabel.AutoSize = true;
+            this.CpuUsageLabel.BackColor = System.Drawing.Color.White;
             this.CpuUsageLabel.Location = new System.Drawing.Point(3, 7);
             this.CpuUsageLabel.Name = "CpuUsageLabel";
             this.CpuUsageLabel.Size = new System.Drawing.Size(68, 15);
@@ -373,6 +382,7 @@
             // CpuProgressBar
             // 
             this.CpuProgressBar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.CpuProgressBar.BackColor = System.Drawing.Color.White;
             this.CpuProgressBar.Location = new System.Drawing.Point(77, 3);
             this.CpuProgressBar.Name = "CpuProgressBar";
             this.CpuProgressBar.Size = new System.Drawing.Size(752, 23);
@@ -383,6 +393,7 @@
             // 
             this.CpuPercentLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.CpuPercentLabel.AutoSize = true;
+            this.CpuPercentLabel.BackColor = System.Drawing.Color.White;
             this.CpuPercentLabel.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CpuPercentLabel.Location = new System.Drawing.Point(835, 6);
             this.CpuPercentLabel.Name = "CpuPercentLabel";
@@ -408,6 +419,7 @@
             // 
             this.RamUsageLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.RamUsageLabel.AutoSize = true;
+            this.RamUsageLabel.BackColor = System.Drawing.Color.White;
             this.RamUsageLabel.Location = new System.Drawing.Point(3, 7);
             this.RamUsageLabel.Name = "RamUsageLabel";
             this.RamUsageLabel.Size = new System.Drawing.Size(67, 15);
@@ -417,6 +429,7 @@
             // RamProgressBar
             // 
             this.RamProgressBar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.RamProgressBar.BackColor = System.Drawing.Color.White;
             this.RamProgressBar.Location = new System.Drawing.Point(76, 3);
             this.RamProgressBar.Name = "RamProgressBar";
             this.RamProgressBar.Size = new System.Drawing.Size(752, 23);
@@ -427,6 +440,7 @@
             // 
             this.RamPercentLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.RamPercentLabel.AutoSize = true;
+            this.RamPercentLabel.BackColor = System.Drawing.Color.White;
             this.RamPercentLabel.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RamPercentLabel.Location = new System.Drawing.Point(834, 6);
             this.RamPercentLabel.Name = "RamPercentLabel";
@@ -457,6 +471,7 @@
             // PlayerFlowPanel
             // 
             this.PlayerFlowPanel.AutoScroll = true;
+            this.PlayerFlowPanel.BackColor = System.Drawing.Color.White;
             this.PlayerFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PlayerFlowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlayerFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -503,6 +518,7 @@
             // 
             // CreateNewConfigurationButton
             // 
+            this.CreateNewConfigurationButton.BackColor = System.Drawing.Color.LightGray;
             this.CreateNewConfigurationButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.CreateNewConfigurationButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CreateNewConfigurationButton.Location = new System.Drawing.Point(0, 462);
@@ -510,10 +526,11 @@
             this.CreateNewConfigurationButton.Size = new System.Drawing.Size(970, 67);
             this.CreateNewConfigurationButton.TabIndex = 4;
             this.CreateNewConfigurationButton.Text = "Create New Configuration";
-            this.CreateNewConfigurationButton.UseVisualStyleBackColor = true;
+            this.CreateNewConfigurationButton.UseVisualStyleBackColor = false;
             // 
             // JavaOptionsGroupBox
             // 
+            this.JavaOptionsGroupBox.BackColor = System.Drawing.Color.White;
             this.JavaOptionsGroupBox.Controls.Add(this.panel8);
             this.JavaOptionsGroupBox.Controls.Add(this.panel7);
             this.JavaOptionsGroupBox.Controls.Add(this.panel6);
@@ -554,6 +571,7 @@
             // 
             this.CustomArgumentsTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.CustomArgumentsTextBox.BackColor = System.Drawing.Color.White;
             this.CustomArgumentsTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomArgumentsTextBox.Location = new System.Drawing.Point(166, 19);
             this.CustomArgumentsTextBox.Name = "CustomArgumentsTextBox";
@@ -720,6 +738,7 @@
             // CurrentConfigurationComboBox
             // 
             this.CurrentConfigurationComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CurrentConfigurationComboBox.BackColor = System.Drawing.Color.White;
             this.CurrentConfigurationComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CurrentConfigurationComboBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CurrentConfigurationComboBox.FormattingEnabled = true;
@@ -732,6 +751,7 @@
             // 
             this.CurrentConfigurationLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.CurrentConfigurationLabel.AutoSize = true;
+            this.CurrentConfigurationLabel.BackColor = System.Drawing.Color.White;
             this.CurrentConfigurationLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CurrentConfigurationLabel.Location = new System.Drawing.Point(5, 23);
             this.CurrentConfigurationLabel.Name = "CurrentConfigurationLabel";
@@ -831,6 +851,7 @@
             // 
             this.GuiPercentLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.GuiPercentLabel.AutoSize = true;
+            this.GuiPercentLabel.BackColor = System.Drawing.Color.White;
             this.GuiPercentLabel.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GuiPercentLabel.Location = new System.Drawing.Point(832, 6);
             this.GuiPercentLabel.Name = "GuiPercentLabel";
@@ -841,6 +862,7 @@
             // GuiProgressBar
             // 
             this.GuiProgressBar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.GuiProgressBar.BackColor = System.Drawing.Color.White;
             this.GuiProgressBar.Location = new System.Drawing.Point(74, 3);
             this.GuiProgressBar.Name = "GuiProgressBar";
             this.GuiProgressBar.Size = new System.Drawing.Size(752, 23);
@@ -851,6 +873,7 @@
             // 
             this.GuiUsageLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.GuiUsageLabel.AutoSize = true;
+            this.GuiUsageLabel.BackColor = System.Drawing.Color.White;
             this.GuiUsageLabel.Location = new System.Drawing.Point(3, 7);
             this.GuiUsageLabel.Name = "GuiUsageLabel";
             this.GuiUsageLabel.Size = new System.Drawing.Size(65, 15);
