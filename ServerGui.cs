@@ -25,7 +25,7 @@ namespace ServerGui
         DataTable playersDataGridData = new DataTable();
 
         //TEMPORARY
-        string jarPath = "-jar C:\\Users\\matthew\\Desktop\\Minecraft\\Vixio\\paperclip.jar nogui";
+        string jarPath = "C:\\Users\\matthew\\Desktop\\Minecraft\\Vixio\\paperclip.jar";
         string workingDirectory = "C:\\Users\\matthew\\Desktop\\Minecraft\\Vixio";
 
 
